@@ -86,6 +86,16 @@
     .hero { background: var(--gradient); color: white; padding: 4rem 0; text-align: center; position: relative; overflow: hidden; }
     .hero-content { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
     .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+    .hero-profile {
+      width: 184px;
+      height: 184px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,0.35);
+      object-fit: cover;
+      object-position: center 18%;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+    }
     .hero-profile { width: 170px; height: 170px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.35); object-fit: cover; box-shadow: 0 25px 45px rgba(0,0,0,0.35); flex-shrink: 0; }
     .hero-text { max-width: 540px; text-align: center; }
     .hero h1 { font-size: 2.75rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: .3px; }
@@ -126,6 +136,7 @@
     /* ---------- Contact ---------- */
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
     .contact-item { background: var(--secondary); padding: 1rem; border-radius: 12px; text-align: center; transition: transform .2s; }
+    .contact-form-card { grid-column: span 2; }
     .contact-item:hover { transform: translateY(-3px); }
     .contact-item a { color: var(--primary); font-weight: 800; text-decoration: none; }
     .contact-icons { display:flex; gap:.75rem; justify-content:center; align-items:center; margin-top:.5rem; }
@@ -139,12 +150,30 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 768px) {
-      .header-content { flex-direction: column; gap: .6rem; }
+      .header-content { flex-direction: column; gap: .6rem; align-items: stretch; }
+      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding-bottom: .25rem; -webkit-overflow-scrolling: touch; }
+      .nav-buttons::-webkit-scrollbar { display: none; }
+      .hero { padding: 3.25rem 0 3rem; }
+      .hero-inner { gap: 1.5rem; }
+      .hero-profile { width: 168px; height: 168px; }
       .hero h1 { font-size: 2.2rem; }
       .hero-subtitle { font-size: 1rem; }
       .hero-cta a { width: 100%; text-align: center; }
       .container { padding: 1rem; }
-      section { padding: 1.25rem; }
+      section { padding: 1.2rem; margin-bottom: 1.5rem; }
+      .xp-item { grid-template-columns: 1fr; }
+      .xp-dates { justify-self: start; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-item { text-align: left; }
+      .contact-form-card { grid-column: auto; }
+    }
+    @media (max-width: 600px) {
+      header { position: sticky; top: 0; }
+    }
+    @media (min-width: 769px) {
+      .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
+      .hero-text { text-align: left; }
+      .hero-cta { justify-content: flex-start; }
     }
     @media (min-width: 769px) {
       .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
@@ -157,9 +186,10 @@
     .btn, .cta-primary, .cta-secondary { min-height: 44px; }
     @media (max-width: 480px) {
       header h1 { font-size: 1.35rem; }
-      .btn { padding: .7rem 1rem; }
-      .hero h1 { font-size: 2rem; }
-      .hero-subtitle { font-size: .95rem; }
+      .btn { padding: .7rem 1rem; flex: 0 0 auto; }
+      .hero h1 { font-size: 1.85rem; }
+      .hero-subtitle { font-size: .98rem; }
+      .skills-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -384,7 +414,7 @@
           </div>
 
           <!-- Keep same Formspree endpoint and field names -->
-          <div class="contact-item" style="grid-column: span 2;">
+          <div class="contact-item contact-form-card">
             <h3>Send Me a Message</h3>
             <form id="contactForm" action="https://formspree.io/f/mblkpqae" method="POST" style="display: grid; gap: .6rem; max-width: 420px; margin: auto;">
               <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required style="padding: .65rem; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text);" />
