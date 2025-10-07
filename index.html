@@ -96,6 +96,7 @@
       box-shadow: 0 25px 45px rgba(0,0,0,0.35);
       flex-shrink: 0;
     }
+    .hero-profile { width: 170px; height: 170px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.35); object-fit: cover; box-shadow: 0 25px 45px rgba(0,0,0,0.35); flex-shrink: 0; }
     .hero-text { max-width: 540px; text-align: center; }
     .hero h1 { font-size: 2.75rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: .3px; }
     .hero-subtitle { font-size: 1.2rem; font-weight: 500; margin-bottom: 1.6rem; opacity: .95; }
@@ -168,6 +169,11 @@
     }
     @media (max-width: 600px) {
       header { position: sticky; top: 0; }
+    }
+    @media (min-width: 769px) {
+      .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
+      .hero-text { text-align: left; }
+      .hero-cta { justify-content: flex-start; }
     }
     @media (min-width: 769px) {
       .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
@@ -420,9 +426,8 @@
           </div>
         </div>
       </section>
-    </div>
-  </main>
-
+      
+    
   <footer>
     <p>© 2025 John Jimenez • Crafted with passion and precision</p>
     <p style="margin-top:.5rem; opacity:.9;">
