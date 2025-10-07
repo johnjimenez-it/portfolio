@@ -84,8 +84,10 @@
 
     /* ---------- Hero ---------- */
     .hero { background: var(--gradient); color: white; padding: 4rem 0; text-align: center; position: relative; overflow: hidden; }
-    .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
-    .hero-profile { width: 150px; height: 150px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.35); margin: 0 auto 1.5rem; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.35); display: block; }
+    .hero-content { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+    .hero-profile { width: 170px; height: 170px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.35); object-fit: cover; box-shadow: 0 25px 45px rgba(0,0,0,0.35); flex-shrink: 0; }
+    .hero-text { max-width: 540px; text-align: center; }
     .hero h1 { font-size: 2.75rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: .3px; }
     .hero-subtitle { font-size: 1.2rem; font-weight: 500; margin-bottom: 1.6rem; opacity: .95; }
     .hero-cta { display: inline-flex; gap: .8rem; flex-wrap: wrap; justify-content: center; }
@@ -144,6 +146,11 @@
       .container { padding: 1rem; }
       section { padding: 1.25rem; }
     }
+    @media (min-width: 769px) {
+      .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
+      .hero-text { text-align: left; }
+      .hero-cta { justify-content: flex-start; }
+    }
       /* ---------- Mobile/Tap targets ---------- */
     img { max-width: 100%; height: auto; }
     input, textarea, button { font-size: 16px; min-height: 44px; }
@@ -177,12 +184,16 @@
   <main id="main">
     <section class="hero">
       <div class="hero-content">
-        <img src="profile.jpg" width="150" height="150" alt="Portrait of John Jimenez" class="hero-profile" />
-        <h1>John Jimenez</h1>
-        <p class="hero-subtitle">Senior IT Student • Data Analytics Enthusiast • Automation Specialist</p>
-        <div class="hero-cta">
-          <a href="#projects" class="cta-primary">View My Work</a>
-          <a href="#contact" class="cta-secondary">Get In Touch</a>
+        <div class="hero-inner">
+          <img src="profile.jpg" width="170" height="170" alt="Portrait of John Jimenez" class="hero-profile" />
+          <div class="hero-text">
+            <h1>John Jimenez</h1>
+            <p class="hero-subtitle">Senior IT Student • Data Analytics Enthusiast • Automation Specialist</p>
+            <div class="hero-cta">
+              <a href="#projects" class="cta-primary">View My Work</a>
+              <a href="#contact" class="cta-secondary">Get In Touch</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -303,6 +314,45 @@
             </ul>
           </div>
           <div class="xp-dates">Sep 2023–May 2024</div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="fade-in" aria-labelledby="proj-title">
+        <h2 id="proj-title">Featured Projects</h2>
+        <div class="grid">
+          <div class="project-card">
+            <img src="ITS poster 2024-04-09 18_12_33-1.png" alt="Poster summarizing third‑party vendor risk" width="640" height="190" loading="lazy" />
+            <div class="project-card-content">
+              <h3>Third‑Party Vendor Risk Assessment</h3>
+              <p>Poster communicating vendor risk evaluations at FSU aligned to NIST & SOC 2 controls.</p>
+              <div class="project-actions">
+                <span class="chip">NIST</span><span class="chip">SOC 2</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="b7e22824-255e-471d-b768-efcd92ba7d51.png" alt="Screenshot of an Excel regression test dashboard" width="640" height="190" loading="lazy" />
+            <div class="project-card-content">
+              <h3>Automated Test Dashboard</h3>
+              <p>Dynamic regression testing tracker with interactive charts for Strategic Procurement.</p>
+              <div class="project-actions">
+                <span class="chip">Excel</span><span class="chip">Automation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="Screenshot 2025-07-09 at 12.42.11 PM.png" alt="Excel contract payment tracking workbook" width="640" height="190" loading="lazy" />
+            <div class="project-card-content">
+              <h3>Contract Payment Management</h3>
+              <p>Excel-based system to monitor contractor invoices & hours against purchase orders.</p>
+              <div class="project-actions">
+                <span class="chip">Analytics</span><span class="chip">Reporting</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
