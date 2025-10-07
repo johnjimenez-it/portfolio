@@ -84,8 +84,19 @@
 
     /* ---------- Hero ---------- */
     .hero { background: var(--gradient); color: white; padding: 4rem 0; text-align: center; position: relative; overflow: hidden; }
-    .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
-    .hero-profile { width: 150px; height: 150px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.35); margin: 0 auto 1.5rem; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.35); display: block; }
+    .hero-content { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+    .hero-profile {
+      width: 184px;
+      height: 184px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,0.35);
+      object-fit: cover;
+      object-position: center 18%;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+    }
+    .hero-text { max-width: 540px; text-align: center; }
     .hero h1 { font-size: 2.75rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: .3px; }
     .hero-subtitle { font-size: 1.2rem; font-weight: 500; margin-bottom: 1.6rem; opacity: .95; }
     .hero-cta { display: inline-flex; gap: .8rem; flex-wrap: wrap; justify-content: center; }
@@ -124,6 +135,7 @@
     /* ---------- Contact ---------- */
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
     .contact-item { background: var(--secondary); padding: 1rem; border-radius: 12px; text-align: center; transition: transform .2s; }
+    .contact-form-card { grid-column: span 2; }
     .contact-item:hover { transform: translateY(-3px); }
     .contact-item a { color: var(--primary); font-weight: 800; text-decoration: none; }
     .contact-icons { display:flex; gap:.75rem; justify-content:center; align-items:center; margin-top:.5rem; }
@@ -137,12 +149,30 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 768px) {
-      .header-content { flex-direction: column; gap: .6rem; }
+      .header-content { flex-direction: column; gap: .6rem; align-items: stretch; }
+      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding-bottom: .25rem; -webkit-overflow-scrolling: touch; }
+      .nav-buttons::-webkit-scrollbar { display: none; }
+      .hero { padding: 3.25rem 0 3rem; }
+      .hero-inner { gap: 1.5rem; }
+      .hero-profile { width: 168px; height: 168px; }
       .hero h1 { font-size: 2.2rem; }
       .hero-subtitle { font-size: 1rem; }
       .hero-cta a { width: 100%; text-align: center; }
       .container { padding: 1rem; }
-      section { padding: 1.25rem; }
+      section { padding: 1.2rem; margin-bottom: 1.5rem; }
+      .xp-item { grid-template-columns: 1fr; }
+      .xp-dates { justify-self: start; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-item { text-align: left; }
+      .contact-form-card { grid-column: auto; }
+    }
+    @media (max-width: 600px) {
+      header { position: sticky; top: 0; }
+    }
+    @media (min-width: 769px) {
+      .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
+      .hero-text { text-align: left; }
+      .hero-cta { justify-content: flex-start; }
     }
       /* ---------- Mobile/Tap targets ---------- */
     img { max-width: 100%; height: auto; }
@@ -150,9 +180,10 @@
     .btn, .cta-primary, .cta-secondary { min-height: 44px; }
     @media (max-width: 480px) {
       header h1 { font-size: 1.35rem; }
-      .btn { padding: .7rem 1rem; }
-      .hero h1 { font-size: 2rem; }
-      .hero-subtitle { font-size: .95rem; }
+      .btn { padding: .7rem 1rem; flex: 0 0 auto; }
+      .hero h1 { font-size: 1.85rem; }
+      .hero-subtitle { font-size: .98rem; }
+      .skills-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -177,17 +208,87 @@
   <main id="main">
     <section class="hero">
       <div class="hero-content">
-        <img src="profile.jpg" width="150" height="150" alt="Portrait of John Jimenez" class="hero-profile" />
-        <h1>John Jimenez</h1>
-        <p class="hero-subtitle">Senior IT Student • Data Analytics Enthusiast • Automation Specialist</p>
-        <div class="hero-cta">
-          <a href="#projects" class="cta-primary">View My Work</a>
-          <a href="#contact" class="cta-secondary">Get In Touch</a>
+        <div class="hero-inner">
+          <img src="profile.jpg" width="170" height="170" alt="Portrait of John Jimenez" class="hero-profile" />
+          <div class="hero-text">
+            <h1>John Jimenez</h1>
+            <p class="hero-subtitle">Senior IT Student • Data Analytics Enthusiast • Automation Specialist</p>
+            <div class="hero-cta">
+              <a href="#projects" class="cta-primary">View My Work</a>
+              <a href="#contact" class="cta-secondary">Get In Touch</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <div class="container">
+      <!-- Education -->
+      <section class="fade-in" aria-labelledby="edu-title">
+        <h2 id="edu-title">Education</h2>
+        <div style="background: var(--secondary); padding: 1.25rem; border-radius: 12px; border-left: 4px solid var(--accent);">
+          <h3 style="margin-bottom:.25rem;">Florida State University</h3>
+          <p><strong>B.S. in Information Technology</strong> | <strong>Minor:</strong> Business Administration</p>
+          <p><strong>GPA:</strong> 3.8 • <strong>Expected Graduation:</strong> May 2026</p>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="fade-in" aria-labelledby="skills-title">
+        <h2 id="skills-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <ul>
+              <li>HTML &amp; CSS</li><li>JavaScript</li><li>Bash</li><li>MySQL</li><li>VBA</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Design &amp; UX</h3>
+            <ul>
+              <li>Figma</li><li>Miro</li><li>Uizard</li><li>Canva</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Automation &amp; Analytics</h3>
+            <ul>
+              <li>SharePoint</li><li>Power Automate</li><li>Excel Macros</li><li>Power BI</li><li>Monday.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recognition -->
+      <section class="fade-in" aria-labelledby="awards-title">
+        <h2 id="awards-title">Recognition &amp; Certifications</h2>
+        <div class="skills-grid">
+          <div class="skill-category" style="border-left-color: var(--primary)">
+            <h3>Academic Honors</h3>
+            <ul>
+              <li>Dean's List (multiple semesters)</li>
+              <li>HITEC Scholar</li>
+              <li>Institute for Civic Engagement &amp; Democracy Honors</li>
+              <li>Communicating with Confidence Award</li>
+            </ul>
+          </div>
+          <div class="skill-category" style="border-left-color: var(--primary)">
+            <h3>Professional Certifications</h3>
+            <ul>
+              <li>CompTIA ITF+ (June 2021)</li>
+              <li>Monday.com Training Certificate (June 2024)</li>
+            </ul>
+          </div>
+          <div class="skill-category" style="border-left-color: var(--primary)">
+            <h3>Leadership &amp; Involvement</h3>
+            <ul>
+              <li>CARE Program Scholar</li>
+              <li>SSS‑STEM</li>
+              <li>Florida‑Georgia LSAMP</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <!-- About -->
       <section id="about" class="fade-in" aria-labelledby="about-title">
         <h2 id="about-title">About Me</h2>
@@ -279,72 +380,6 @@
         </div>
       </section>
 
-      <!-- Education -->
-      <section class="fade-in" aria-labelledby="edu-title">
-        <h2 id="edu-title">Education</h2>
-        <div style="background: var(--secondary); padding: 1.25rem; border-radius: 12px; border-left: 4px solid var(--accent);">
-          <h3 style="margin-bottom:.25rem;">Florida State University</h3>
-          <p><strong>B.S. in Information Technology</strong> | <strong>Minor:</strong> Business Administration</p>
-          <p><strong>GPA:</strong> 3.8 • <strong>Expected Graduation:</strong> May 2026</p>
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section class="fade-in" aria-labelledby="skills-title">
-        <h2 id="skills-title">Technical Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Programming Languages</h3>
-            <ul>
-              <li>HTML &amp; CSS</li><li>JavaScript</li><li>Bash</li><li>MySQL</li><li>VBA</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h3>Design &amp; UX</h3>
-            <ul>
-              <li>Figma</li><li>Miro</li><li>Uizard</li><li>Canva</li>
-            </ul>
-          </div>
-          <div class="skill-category">
-            <h3>Automation &amp; Analytics</h3>
-            <ul>
-              <li>SharePoint</li><li>Power Automate</li><li>Excel Macros</li><li>Power BI</li><li>Monday.com</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Recognition -->
-      <section class="fade-in" aria-labelledby="awards-title">
-        <h2 id="awards-title">Recognition &amp; Certifications</h2>
-        <div class="skills-grid">
-          <div class="skill-category" style="border-left-color: var(--primary)">
-            <h3>Academic Honors</h3>
-            <ul>
-              <li>Dean's List (multiple semesters)</li>
-              <li>HITEC Scholar</li>
-              <li>Institute for Civic Engagement &amp; Democracy Honors</li>
-              <li>Communicating with Confidence Award</li>
-            </ul>
-          </div>
-          <div class="skill-category" style="border-left-color: var(--primary)">
-            <h3>Professional Certifications</h3>
-            <ul>
-              <li>CompTIA ITF+ (June 2021)</li>
-              <li>Monday.com Training Certificate (June 2024)</li>
-            </ul>
-          </div>
-          <div class="skill-category" style="border-left-color: var(--primary)">
-            <h3>Leadership &amp; Involvement</h3>
-            <ul>
-              <li>CARE Program Scholar</li>
-              <li>SSS‑STEM</li>
-              <li>Florida‑Georgia LSAMP</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       <!-- Contact -->
       <section id="contact" class="fade-in" aria-labelledby="contact-title">
         <h2 id="contact-title">Let's Connect</h2>
@@ -373,7 +408,7 @@
           </div>
 
           <!-- Keep same Formspree endpoint and field names -->
-          <div class="contact-item" style="grid-column: span 2;">
+          <div class="contact-item contact-form-card">
             <h3>Send Me a Message</h3>
             <form id="contactForm" action="https://formspree.io/f/mblkpqae" method="POST" style="display: grid; gap: .6rem; max-width: 420px; margin: auto;">
               <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required style="padding: .65rem; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text);" />
