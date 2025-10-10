@@ -96,6 +96,16 @@
       box-shadow: 0 25px 45px rgba(0,0,0,0.35);
       flex-shrink: 0;
     }
+      width: 184px;
+      height: 184px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,0.35);
+      object-fit: cover;
+      object-position: center 18%;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+    }
+    .hero-profile { width: 170px; height: 170px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.35); object-fit: cover; box-shadow: 0 25px 45px rgba(0,0,0,0.35); flex-shrink: 0; }
     .hero-text { max-width: 540px; text-align: center; }
     .hero h1 { font-size: 2.75rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: .3px; }
     .hero-subtitle { font-size: 1.2rem; font-weight: 500; margin-bottom: 1.6rem; opacity: .95; }
@@ -129,10 +139,8 @@
       background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25) 0, rgba(255,255,255,0) 55%),
                   linear-gradient(135deg, rgba(14,165,233,0.85) 0%, rgba(124,58,237,0.85) 100%);
     }
-    .project-card-content { padding: 1rem; display: grid; gap: .75rem; }
-    .project-role { font-weight: 700; color: var(--text); }
-    .project-role span { display: block; font-weight: 600; color: var(--text-light); margin-top: .25rem; }
-    .project-actions { display: flex; gap: .5rem; margin-top: .25rem; flex-wrap: wrap; }
+    .project-card-content { padding: 1rem; }
+    .project-actions { display: flex; gap: .5rem; margin-top: .75rem; flex-wrap: wrap; }
     .chip { display: inline-block; padding: .35rem .7rem; border-radius: 999px; background: var(--secondary); color: var(--text-light); font-weight: 800; font-size: .8rem; border: 1px solid var(--border); }
     .project-link { display: inline-flex; align-items: center; gap: .35rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; padding: .55rem .95rem; border-radius: 999px; border: 1px solid var(--border); background: var(--secondary); transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
     .project-link:hover { background: rgba(14,165,233,0.12); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,0.12); }
@@ -164,14 +172,12 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 768px) {
-      header { padding: .5rem 0; }
-      .header-content { flex-direction: column; gap: .45rem; align-items: flex-start; padding: 0 1rem .35rem; width: 100%; }
-      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding: .2rem 0 .4rem; margin: 0 -0.25rem; gap: .4rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .header-content { flex-direction: column; gap: .6rem; align-items: stretch; }
+      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding-bottom: .25rem; -webkit-overflow-scrolling: touch; }
       .nav-buttons::-webkit-scrollbar { display: none; }
-      .nav-buttons > * { flex: 0 0 auto; }
-      .hero { padding: 2.75rem 0 2.5rem; }
+      .hero { padding: 3.25rem 0 3rem; }
       .hero-inner { gap: 1.5rem; }
-      .hero-profile { width: 168px; height: 168px; object-position: center 44%; }
+      .hero-profile { width: 168px; height: 168px; }
       .hero h1 { font-size: 2.2rem; }
       .hero-subtitle { font-size: 1rem; }
       .hero-cta a { width: 100%; text-align: center; }
@@ -185,6 +191,11 @@
     }
     @media (max-width: 600px) {
       header { position: sticky; top: 0; }
+    }
+    @media (min-width: 769px) {
+      .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
+      .hero-text { text-align: left; }
+      .hero-cta { justify-content: flex-start; }
     }
     @media (min-width: 769px) {
       .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
@@ -231,7 +242,6 @@
             <p class="hero-subtitle">Senior IT Student • Data Analytics Enthusiast • Automation Specialist</p>
             <div class="hero-cta">
               <a href="#projects" class="cta-primary">View My Work</a>
-              <a href="#resume" class="cta-secondary">Interactive Resume</a>
               <a href="#contact" class="cta-secondary">Get In Touch</a>
             </div>
           </div>
@@ -302,24 +312,6 @@
               <li>SSS‑STEM</li>
               <li>Florida‑Georgia LSAMP</li>
             </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Interactive Resume -->
-      <section id="resume" class="fade-in" aria-labelledby="resume-title">
-        <h2 id="resume-title">Interactive Resume Snapshot</h2>
-        <div style="display: grid; gap: 1rem; background: var(--secondary); padding: 1.5rem; border-radius: 16px; border-left: 4px solid var(--primary);">
-          <p style="font-size: 1.05rem; color: var(--text-light);">
-            Explore my interactive resume for a complete view of experience, leadership, and technical work. It includes embedded dashboards, project timelines, and live links to deliverables.
-          </p>
-          <ul style="padding-left: 1.2rem; color: var(--text-light);">
-            <li>Downloadable PDF resume for quick reference.</li>
-            <li>Interactive site that highlights ongoing projects and accomplishments.</li>
-          </ul>
-          <div style="display: flex; flex-wrap: wrap; gap: .75rem;">
-            <a class="project-link" href="resume.pdf" download>📄 Download Resume</a>
-            <a class="project-link" href="https://torch.cci.fsu.edu/~jj22e/" target="_blank" rel="noopener">🌐 View Interactive Version</a>
           </div>
         </div>
       </section>
@@ -418,9 +410,6 @@
             </div>
           </div>
         </div>
-        <div class="projects-footer">
-          <a href="projects.html">See more projects &amp; case studies →</a>
-        </div>
       </section>
 
       <!-- Contact -->
@@ -463,9 +452,8 @@
           </div>
         </div>
       </section>
-    </div>
-  </main>
-
+      
+    
   <footer>
     <p>© 2025 John Jimenez • Crafted with passion and precision</p>
     <p style="margin-top:.5rem; opacity:.9;">
