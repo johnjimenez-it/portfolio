@@ -142,6 +142,11 @@
     .project-card-content { padding: 1rem; }
     .project-actions { display: flex; gap: .5rem; margin-top: .75rem; flex-wrap: wrap; }
     .chip { display: inline-block; padding: .35rem .7rem; border-radius: 999px; background: var(--secondary); color: var(--text-light); font-weight: 800; font-size: .8rem; border: 1px solid var(--border); }
+    .project-link { display: inline-flex; align-items: center; gap: .35rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; padding: .55rem .95rem; border-radius: 999px; border: 1px solid var(--border); background: var(--secondary); transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .project-link:hover { background: rgba(14,165,233,0.12); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,0.12); }
+    .projects-footer { margin-top: 1.5rem; text-align: center; }
+    .projects-footer a { display: inline-flex; align-items: center; gap: .45rem; background: var(--primary); color: #fff; padding: .85rem 1.6rem; border-radius: 999px; text-decoration: none; font-weight: 800; box-shadow: 0 12px 30px rgba(30,144,255,.25); transition: transform .2s ease, box-shadow .2s ease; }
+    .projects-footer a:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(30,144,255,.35); }
 
     /* ---------- Skills ---------- */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
@@ -220,8 +225,7 @@
         <a href="#about" class="btn">About</a>
         <a href="#experience" class="btn">Experience</a>
         <a href="#projects" class="btn">Projects</a>
-        <a href="case-studies.html" class="btn">Case Studies</a>
-        <a href="class-projects.html" class="btn">Class Projects</a>
+        <a href="projects.html" class="btn">Projects Hub</a>
         <a href="#contact" class="btn">Contact</a>
         <button id="themeToggle" class="toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
       </nav>
@@ -366,15 +370,17 @@
 
       <!-- Projects -->
       <section id="projects" class="fade-in" aria-labelledby="proj-title">
-        <h2 id="proj-title">Featured Projects</h2>
+        <h2 id="proj-title">Career Portfolio Highlights</h2>
         <div class="grid">
           <div class="project-card">
             <img src="ITS poster 2024-04-09 18_12_33-1.png" alt="Poster summarizing third‑party vendor risk" width="640" height="190" loading="lazy" />
             <div class="project-card-content">
               <h3>Third‑Party Vendor Risk Assessment</h3>
-              <p>Poster communicating vendor risk evaluations at FSU aligned to NIST & SOC 2 controls.</p>
+              <p>Interactive dashboard and poster that translate vendor due diligence into an actionable risk scorecard for FSU leadership.</p>
+              <p class="project-role">My Role<span>Led the controls mapping, built the scoring model in Excel, and designed the visual story used in campus briefings.</span></p>
               <div class="project-actions">
                 <span class="chip">NIST</span><span class="chip">SOC 2</span>
+                <a class="project-link" href="ITS%20poster%202024-04-09%2018_12_33-1.png" download>📄 View Poster</a>
               </div>
             </div>
           </div>
@@ -382,10 +388,12 @@
           <div class="project-card">
             <img src="b7e22824-255e-471d-b768-efcd92ba7d51.png" alt="Screenshot of an Excel regression test dashboard" width="640" height="190" loading="lazy" />
             <div class="project-card-content">
-              <h3>Automated Test Dashboard</h3>
-              <p>Dynamic regression testing tracker with interactive charts for Strategic Procurement.</p>
+              <h3>Automated Regression Test Dashboard</h3>
+              <p>SharePoint-connected tracker that visualizes bug status, sprint velocity, and release readiness for Strategic Procurement.</p>
+              <p class="project-role">My Role<span>Authored the VBA automations, built the analytics views, and facilitated stakeholder demos to hand off the solution.</span></p>
               <div class="project-actions">
                 <span class="chip">Excel</span><span class="chip">Automation</span>
+                <a class="project-link" href="b7e22824-255e-471d-b768-efcd92ba7d51.png" download>🖼️ Dashboard Snapshot</a>
               </div>
             </div>
           </div>
@@ -393,8 +401,9 @@
           <div class="project-card">
             <div class="project-card-illustration" role="presentation" aria-hidden="true"></div>
             <div class="project-card-content">
-              <h3>Contract Payment Management</h3>
-              <p>Excel-based system to monitor contractor invoices & hours against purchase orders.</p>
+              <h3>Contract Payment Management System</h3>
+              <p>Excel-based controls that reconcile invoices, hours, and contract ceilings to prevent overbilling on surtax-funded projects.</p>
+              <p class="project-role">My Role<span>Implemented validation logic, created automated alerts, and trained project managers on how to use the tool.</span></p>
               <div class="project-actions">
                 <span class="chip">Analytics</span><span class="chip">Reporting</span>
               </div>
