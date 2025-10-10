@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -84,8 +84,19 @@
 
     /* ---------- Hero ---------- */
     .hero { background: var(--gradient); color: white; padding: 4rem 0; text-align: center; position: relative; overflow: hidden; }
-    .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
-    .hero-profile { width: 150px; height: 150px; border-radius: 50%; border: 5px solid rgba(255,255,255,0.35); margin: 0 auto 1.5rem; object-fit: cover; box-shadow: 0 20px 40px rgba(0,0,0,0.35); display: block; }
+    .hero-content { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+    .hero-profile {
+      width: 192px;
+      height: 192px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,0.35);
+      object-fit: cover;
+      object-position: center 38%;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+    }
+    .hero-text { max-width: 540px; text-align: center; }
     .hero h1 { font-size: 2.75rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: .3px; }
     .hero-subtitle { font-size: 1.2rem; font-weight: 500; margin-bottom: 1.6rem; opacity: .95; }
     .hero-cta { display: inline-flex; gap: .8rem; flex-wrap: wrap; justify-content: center; }
@@ -112,18 +123,34 @@
     .project-card { background: var(--card); border-radius: 14px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,.08); transition: transform .2s ease, box-shadow .2s ease; }
     .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0,0,0,.15); }
     .project-card img { width: 100%; height: 190px; object-fit: cover; display:block; }
-    .project-card-content { padding: 1rem; }
-    .project-actions { display: flex; gap: .5rem; margin-top: .75rem; flex-wrap: wrap; }
+    .project-card-illustration {
+      height: 190px;
+      width: 100%;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25) 0, rgba(255,255,255,0) 55%),
+                  linear-gradient(135deg, rgba(14,165,233,0.85) 0%, rgba(124,58,237,0.85) 100%);
+    }
+    .project-card-content { padding: 1rem; display: grid; gap: .75rem; }
+    .project-role { font-weight: 700; color: var(--text); }
+    .project-role span { display: block; font-weight: 600; color: var(--text-light); margin-top: .25rem; }
+    .project-actions { display: flex; gap: .5rem; margin-top: .25rem; flex-wrap: wrap; }
     .chip { display: inline-block; padding: .35rem .7rem; border-radius: 999px; background: var(--secondary); color: var(--text-light); font-weight: 800; font-size: .8rem; border: 1px solid var(--border); }
+    .project-link { display: inline-flex; align-items: center; gap: .35rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; padding: .55rem .95rem; border-radius: 999px; border: 1px solid var(--border); background: var(--secondary); transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .project-link:hover { background: rgba(14,165,233,0.12); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,0.12); }
+    .projects-footer { margin-top: 1.5rem; text-align: center; }
+    .projects-footer a { display: inline-flex; align-items: center; gap: .45rem; background: var(--primary); color: #fff; padding: .85rem 1.6rem; border-radius: 999px; text-decoration: none; font-weight: 800; box-shadow: 0 12px 30px rgba(30,144,255,.25); transition: transform .2s ease, box-shadow .2s ease; }
+    .projects-footer a:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(30,144,255,.35); }
 
     /* ---------- Skills ---------- */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+    .skill-category ul, .xp-bullets { padding-left: 1.15rem; }
+    .skill-category li { margin-bottom: .35rem; }
     .skill-category { background: var(--secondary); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--accent); }
     .skill-category h3 { margin-bottom: .6rem; }
 
     /* ---------- Contact ---------- */
     .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
     .contact-item { background: var(--secondary); padding: 1rem; border-radius: 12px; text-align: center; transition: transform .2s; }
+    .contact-form-card { grid-column: span 2; }
     .contact-item:hover { transform: translateY(-3px); }
     .contact-item a { color: var(--primary); font-weight: 800; text-decoration: none; }
     .contact-icons { display:flex; gap:.75rem; justify-content:center; align-items:center; margin-top:.5rem; }
@@ -137,12 +164,32 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 768px) {
-      .header-content { flex-direction: column; gap: .6rem; }
+      header { padding: .5rem 0; }
+      .header-content { flex-direction: column; gap: .45rem; align-items: flex-start; padding: 0 1rem .35rem; width: 100%; }
+      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding: .2rem 0 .4rem; margin: 0 -0.25rem; gap: .4rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .nav-buttons::-webkit-scrollbar { display: none; }
+      .nav-buttons > * { flex: 0 0 auto; }
+      .hero { padding: 2.75rem 0 2.5rem; }
+      .hero-inner { gap: 1.5rem; }
+      .hero-profile { width: 168px; height: 168px; object-position: center 44%; }
       .hero h1 { font-size: 2.2rem; }
       .hero-subtitle { font-size: 1rem; }
       .hero-cta a { width: 100%; text-align: center; }
       .container { padding: 1rem; }
-      section { padding: 1.25rem; }
+      section { padding: 1.2rem; margin-bottom: 1.5rem; }
+      .xp-item { grid-template-columns: 1fr; }
+      .xp-dates { justify-self: start; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-item { text-align: left; }
+      .contact-form-card { grid-column: auto; }
+    }
+    @media (max-width: 600px) {
+      header { position: sticky; top: 0; }
+    }
+    @media (min-width: 769px) {
+      .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
+      .hero-text { text-align: left; }
+      .hero-cta { justify-content: flex-start; }
     }
       /* ---------- Mobile/Tap targets ---------- */
     img { max-width: 100%; height: auto; }
@@ -150,9 +197,10 @@
     .btn, .cta-primary, .cta-secondary { min-height: 44px; }
     @media (max-width: 480px) {
       header h1 { font-size: 1.35rem; }
-      .btn { padding: .7rem 1rem; }
-      .hero h1 { font-size: 2rem; }
-      .hero-subtitle { font-size: .95rem; }
+      .btn { padding: .7rem 1rem; flex: 0 0 auto; }
+      .hero h1 { font-size: 1.85rem; }
+      .hero-subtitle { font-size: .98rem; }
+      .skills-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -166,8 +214,7 @@
         <a href="#about" class="btn">About</a>
         <a href="#experience" class="btn">Experience</a>
         <a href="#projects" class="btn">Projects</a>
-        <a href="case-studies.html" class="btn">Case Studies</a>
-        <a href="class-projects.html" class="btn">Class Projects</a>
+        <a href="projects.html" class="btn">Projects Hub</a>
         <a href="#contact" class="btn">Contact</a>
         <button id="themeToggle" class="toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
       </nav>
@@ -177,108 +224,22 @@
   <main id="main">
     <section class="hero">
       <div class="hero-content">
-        <img src="profile.jpg" width="150" height="150" alt="Portrait of John Jimenez" class="hero-profile" />
-        <h1>John Jimenez</h1>
-        <p class="hero-subtitle">Senior IT Student • Data Analytics Enthusiast • Automation Specialist</p>
-        <div class="hero-cta">
-          <a href="#projects" class="cta-primary">View My Work</a>
-          <a href="#contact" class="cta-secondary">Get In Touch</a>
+        <div class="hero-inner">
+          <img src="profile.jpg" width="170" height="170" alt="Portrait of John Jimenez" class="hero-profile" />
+          <div class="hero-text">
+            <h1>John Jimenez</h1>
+            <p class="hero-subtitle">Senior IT Student • Data Analytics Enthusiast • Automation Specialist</p>
+            <div class="hero-cta">
+              <a href="#projects" class="cta-primary">View My Work</a>
+              <a href="#resume" class="cta-secondary">Interactive Resume</a>
+              <a href="#contact" class="cta-secondary">Get In Touch</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <div class="container">
-      <!-- About -->
-      <section id="about" class="fade-in" aria-labelledby="about-title">
-        <h2 id="about-title">About Me</h2>
-        <p style="font-size: 1.05rem; color: var(--text-light); margin-bottom: .75rem;">
-          I’m a senior IT student at Florida State University with a passion for simplifying complexity through automation, analytics, and thoughtful design.
-        </p>
-        <p style="font-size: 1.05rem; color: var(--text-light);">
-          Across public‑sector internships, I’ve shipped dashboards, streamlined SharePoint processes, and translated messy data into clear decisions.
-        </p>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience" class="fade-in" aria-labelledby="exp-title">
-        <h2 id="exp-title">Professional Experience</h2>
-
-        <div class="xp-item">
-          <div>
-            <div class="xp-role">Business Solutions & Data Analytics Intern — Miami‑Dade CITT</div>
-            <p>Built Excel-based trackers and dashboards for surtax-funded municipal transit projects; generated insights for monthly meetings and improved documentation.</p>
-            <ul class="xp-bullets">
-              <li>Created contract-payment controls preventing over-billing across POs.</li>
-              <li>Standardized monthly reporting with reusable Excel/Power BI templates.</li>
-            </ul>
-          </div>
-          <div class="xp-dates">May 2025–Present</div>
-        </div>
-
-        <div class="xp-item">
-          <div>
-            <div class="xp-role">IT Automation & Project Management Intern — Miami‑Dade Strategic Procurement</div>
-            <p>Created automated testing dashboards, streamlined SharePoint workflows, and built a bug tracking system improving visibility and response times.</p>
-            <ul class="xp-bullets">
-              <li>Built a regression test tracker with macros and visual status chips.</li>
-              <li>Automated Planner/SharePoint flows to route issues and notify owners.</li>
-            </ul>
-          </div>
-          <div class="xp-dates">May–Sep 2024</div>
-        </div>
-
-        <div class="xp-item">
-          <div>
-            <div class="xp-role">IT Privacy & Compliance Intern — FSU Information Security</div>
-            <p>Conducted SOC 2 vendor assessments and produced materials on third‑party risk using NIST & COSO frameworks to level‑up security awareness.</p>
-            <ul class="xp-bullets">
-              <li>Mapped vendor controls to NIST CSF, improving review consistency.</li>
-              <li>Designed awareness poster used by 3+ internal teams.</li>
-            </ul>
-          </div>
-          <div class="xp-dates">Sep 2023–May 2024</div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects" class="fade-in" aria-labelledby="proj-title">
-        <h2 id="proj-title">Featured Projects</h2>
-        <div class="grid">
-          <div class="project-card">
-            <img src="ITS poster 2024-04-09 18_12_33-1.png" alt="Poster summarizing third‑party vendor risk" width="640" height="190" loading="lazy" />
-            <div class="project-card-content">
-              <h3>Third‑Party Vendor Risk Assessment</h3>
-              <p>Poster communicating vendor risk evaluations at FSU aligned to NIST & SOC 2 controls.</p>
-              <div class="project-actions">
-                <span class="chip">NIST</span><span class="chip">SOC 2</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <img src="b7e22824-255e-471d-b768-efcd92ba7d51.png" alt="Screenshot of an Excel regression test dashboard" width="640" height="190" loading="lazy" />
-            <div class="project-card-content">
-              <h3>Automated Test Dashboard</h3>
-              <p>Dynamic regression testing tracker with interactive charts for Strategic Procurement.</p>
-              <div class="project-actions">
-                <span class="chip">Excel</span><span class="chip">Automation</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <img src="Screenshot 2025-07-09 at 12.42.11 PM.png" alt="Excel contract payment tracking workbook" width="640" height="190" loading="lazy" />
-            <div class="project-card-content">
-              <h3>Contract Payment Management</h3>
-              <p>Excel-based system to monitor contractor invoices & hours against purchase orders.</p>
-              <div class="project-actions">
-                <span class="chip">Analytics</span><span class="chip">Reporting</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- Education -->
       <section class="fade-in" aria-labelledby="edu-title">
         <h2 id="edu-title">Education</h2>
@@ -345,6 +306,123 @@
         </div>
       </section>
 
+      <!-- Interactive Resume -->
+      <section id="resume" class="fade-in" aria-labelledby="resume-title">
+        <h2 id="resume-title">Interactive Resume Snapshot</h2>
+        <div style="display: grid; gap: 1rem; background: var(--secondary); padding: 1.5rem; border-radius: 16px; border-left: 4px solid var(--primary);">
+          <p style="font-size: 1.05rem; color: var(--text-light);">
+            Explore my interactive resume for a complete view of experience, leadership, and technical work. It includes embedded dashboards, project timelines, and live links to deliverables.
+          </p>
+          <ul style="padding-left: 1.2rem; color: var(--text-light);">
+            <li>Downloadable PDF resume for quick reference.</li>
+            <li>Interactive site that highlights ongoing projects and accomplishments.</li>
+          </ul>
+          <div style="display: flex; flex-wrap: wrap; gap: .75rem;">
+            <a class="project-link" href="resume.pdf" download>📄 Download Resume</a>
+            <a class="project-link" href="https://torch.cci.fsu.edu/~jj22e/" target="_blank" rel="noopener">🌐 View Interactive Version</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="fade-in" aria-labelledby="about-title">
+        <h2 id="about-title">About Me</h2>
+        <p style="font-size: 1.05rem; color: var(--text-light); margin-bottom: .75rem;">
+          I’m a senior IT student at Florida State University with a passion for simplifying complexity through automation, analytics, and thoughtful design.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--text-light);">
+          Across public‑sector internships, I’ve shipped dashboards, streamlined SharePoint processes, and translated messy data into clear decisions.
+        </p>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="fade-in" aria-labelledby="exp-title">
+        <h2 id="exp-title">Professional Experience</h2>
+
+        <div class="xp-item">
+          <div>
+            <div class="xp-role">Business Solutions & Data Analytics Intern — Miami‑Dade CITT</div>
+            <p>Built Excel-based trackers and dashboards for surtax-funded municipal transit projects; generated insights for monthly meetings and improved documentation.</p>
+            <ul class="xp-bullets">
+              <li>Created contract-payment controls preventing over-billing across POs.</li>
+              <li>Standardized monthly reporting with reusable Excel/Power BI templates.</li>
+            </ul>
+          </div>
+          <div class="xp-dates">May 2025–Present</div>
+        </div>
+
+        <div class="xp-item">
+          <div>
+            <div class="xp-role">IT Automation & Project Management Intern — Miami‑Dade Strategic Procurement</div>
+            <p>Created automated testing dashboards, streamlined SharePoint workflows, and built a bug tracking system improving visibility and response times.</p>
+            <ul class="xp-bullets">
+              <li>Built a regression test tracker with macros and visual status chips.</li>
+              <li>Automated Planner/SharePoint flows to route issues and notify owners.</li>
+            </ul>
+          </div>
+          <div class="xp-dates">May–Sep 2024</div>
+        </div>
+
+        <div class="xp-item">
+          <div>
+            <div class="xp-role">IT Privacy & Compliance Intern — FSU Information Security</div>
+            <p>Conducted SOC 2 vendor assessments and produced materials on third‑party risk using NIST & COSO frameworks to level‑up security awareness.</p>
+            <ul class="xp-bullets">
+              <li>Mapped vendor controls to NIST CSF, improving review consistency.</li>
+              <li>Designed awareness poster used by 3+ internal teams.</li>
+            </ul>
+          </div>
+          <div class="xp-dates">Sep 2023–May 2024</div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="fade-in" aria-labelledby="proj-title">
+        <h2 id="proj-title">Career Portfolio Highlights</h2>
+        <div class="grid">
+          <div class="project-card">
+            <img src="ITS poster 2024-04-09 18_12_33-1.png" alt="Poster summarizing third‑party vendor risk" width="640" height="190" loading="lazy" />
+            <div class="project-card-content">
+              <h3>Third‑Party Vendor Risk Assessment</h3>
+              <p>Interactive dashboard and poster that translate vendor due diligence into an actionable risk scorecard for FSU leadership.</p>
+              <p class="project-role">My Role<span>Led the controls mapping, built the scoring model in Excel, and designed the visual story used in campus briefings.</span></p>
+              <div class="project-actions">
+                <span class="chip">NIST</span><span class="chip">SOC 2</span>
+                <a class="project-link" href="ITS%20poster%202024-04-09%2018_12_33-1.png" download>📄 View Poster</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img src="b7e22824-255e-471d-b768-efcd92ba7d51.png" alt="Screenshot of an Excel regression test dashboard" width="640" height="190" loading="lazy" />
+            <div class="project-card-content">
+              <h3>Automated Regression Test Dashboard</h3>
+              <p>SharePoint-connected tracker that visualizes bug status, sprint velocity, and release readiness for Strategic Procurement.</p>
+              <p class="project-role">My Role<span>Authored the VBA automations, built the analytics views, and facilitated stakeholder demos to hand off the solution.</span></p>
+              <div class="project-actions">
+                <span class="chip">Excel</span><span class="chip">Automation</span>
+                <a class="project-link" href="b7e22824-255e-471d-b768-efcd92ba7d51.png" download>🖼️ Dashboard Snapshot</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-illustration" role="presentation" aria-hidden="true"></div>
+            <div class="project-card-content">
+              <h3>Contract Payment Management System</h3>
+              <p>Excel-based controls that reconcile invoices, hours, and contract ceilings to prevent overbilling on surtax-funded projects.</p>
+              <p class="project-role">My Role<span>Implemented validation logic, created automated alerts, and trained project managers on how to use the tool.</span></p>
+              <div class="project-actions">
+                <span class="chip">Analytics</span><span class="chip">Reporting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="projects-footer">
+          <a href="projects.html">See more projects &amp; case studies →</a>
+        </div>
+      </section>
+
       <!-- Contact -->
       <section id="contact" class="fade-in" aria-labelledby="contact-title">
         <h2 id="contact-title">Let's Connect</h2>
@@ -373,7 +451,7 @@
           </div>
 
           <!-- Keep same Formspree endpoint and field names -->
-          <div class="contact-item" style="grid-column: span 2;">
+          <div class="contact-item contact-form-card">
             <h3>Send Me a Message</h3>
             <form id="contactForm" action="https://formspree.io/f/mblkpqae" method="POST" style="display: grid; gap: .6rem; max-width: 420px; margin: auto;">
               <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required style="padding: .65rem; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text);" />
@@ -439,15 +517,19 @@
     const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const stored = localStorage.getItem('jj-theme');
     if ((stored === 'dark') || (!stored && prefersDark)) document.documentElement.classList.add('dark');
+    const setToggleState = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      toggle.textContent = isDark ? '☀' : '☾';
+      toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      toggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    };
     toggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       const isDark = document.documentElement.classList.contains('dark');
       localStorage.setItem('jj-theme', isDark ? 'dark' : 'light');
-      toggle.textContent = isDark ? '☀' : '☾';
-      toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-      toggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      setToggleState();
     });
-    toggle.textContent = document.documentElement.classList.contains('dark') ? '☀' : '☾';
+    setToggleState();
 
     // Formspree AJAX submit with inline success/error
     const form = document.getElementById('contactForm');
@@ -498,6 +580,7 @@
       const main = document.querySelector('main');
       if (header && main) { main.style.marginTop = header.offsetHeight + 'px'; }
     }
+    syncMainOffset();
     window.addEventListener('load', syncMainOffset);
     window.addEventListener('resize', syncMainOffset);
   </script>
