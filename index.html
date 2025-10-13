@@ -96,6 +96,16 @@
       box-shadow: 0 25px 45px rgba(0,0,0,0.35);
       flex-shrink: 0;
     }
+      width: 184px;
+      height: 184px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,0.35);
+      object-fit: cover;
+      object-position: center 18%;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+      flex-shrink: 0;
+    }
+    .hero-profile { width: 170px; height: 170px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.35); object-fit: cover; box-shadow: 0 25px 45px rgba(0,0,0,0.35); flex-shrink: 0; }
     .hero-text { max-width: 540px; text-align: center; }
     .hero h1 { font-size: 2.75rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: .3px; }
     .hero-subtitle { font-size: 1.2rem; font-weight: 500; margin-bottom: 1.6rem; opacity: .95; }
@@ -129,21 +139,14 @@
       background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25) 0, rgba(255,255,255,0) 55%),
                   linear-gradient(135deg, rgba(14,165,233,0.85) 0%, rgba(124,58,237,0.85) 100%);
     }
-    .project-card-content { padding: 1rem; display: grid; gap: .75rem; }
-    .project-role { font-weight: 700; color: var(--text); }
-    .project-role span { display: block; font-weight: 600; color: var(--text-light); margin-top: .25rem; }
-    .project-actions { display: flex; gap: .5rem; margin-top: .25rem; flex-wrap: wrap; }
+    .project-card-content { padding: 1rem; }
+    .project-actions { display: flex; gap: .5rem; margin-top: .75rem; flex-wrap: wrap; }
     .chip { display: inline-block; padding: .35rem .7rem; border-radius: 999px; background: var(--secondary); color: var(--text-light); font-weight: 800; font-size: .8rem; border: 1px solid var(--border); }
     .project-link { display: inline-flex; align-items: center; gap: .35rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; padding: .55rem .95rem; border-radius: 999px; border: 1px solid var(--border); background: var(--secondary); transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
     .project-link:hover { background: rgba(14,165,233,0.12); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,0.12); }
     .projects-footer { margin-top: 1.5rem; text-align: center; }
     .projects-footer a { display: inline-flex; align-items: center; gap: .45rem; background: var(--primary); color: #fff; padding: .85rem 1.6rem; border-radius: 999px; text-decoration: none; font-weight: 800; box-shadow: 0 12px 30px rgba(30,144,255,.25); transition: transform .2s ease, box-shadow .2s ease; }
     .projects-footer a:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(30,144,255,.35); }
-    .portfolio-lede { font-size: 1.05rem; color: var(--text-light); margin-bottom: 1.25rem; }
-    .portfolio-group { background: var(--secondary); padding: 1.5rem; border-radius: 16px; border-left: 4px solid var(--primary); display: grid; gap: 1.5rem; margin-bottom: 1.5rem; }
-    .portfolio-group:last-of-type { margin-bottom: 0; }
-    .portfolio-group-header h3 { font-size: 1.35rem; margin-bottom: .25rem; }
-    .portfolio-group-header p { color: var(--text-light); }
 
     /* ---------- Skills ---------- */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
@@ -169,14 +172,12 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 768px) {
-      header { padding: .5rem 0; }
-      .header-content { flex-direction: column; gap: .45rem; align-items: flex-start; padding: 0 1rem .35rem; width: 100%; }
-      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding: .2rem 0 .4rem; margin: 0 -0.25rem; gap: .4rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+      .header-content { flex-direction: column; gap: .6rem; align-items: stretch; }
+      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding-bottom: .25rem; -webkit-overflow-scrolling: touch; }
       .nav-buttons::-webkit-scrollbar { display: none; }
-      .nav-buttons > * { flex: 0 0 auto; }
-      .hero { padding: 2.75rem 0 2.5rem; }
+      .hero { padding: 3.25rem 0 3rem; }
       .hero-inner { gap: 1.5rem; }
-      .hero-profile { width: 168px; height: 168px; object-position: center 44%; }
+      .hero-profile { width: 168px; height: 168px; }
       .hero h1 { font-size: 2.2rem; }
       .hero-subtitle { font-size: 1rem; }
       .hero-cta a { width: 100%; text-align: center; }
@@ -190,6 +191,11 @@
     }
     @media (max-width: 600px) {
       header { position: sticky; top: 0; }
+    }
+    @media (min-width: 769px) {
+      .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
+      .hero-text { text-align: left; }
+      .hero-cta { justify-content: flex-start; }
     }
     @media (min-width: 769px) {
       .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
@@ -219,7 +225,7 @@
         <a href="#about" class="btn">About</a>
         <a href="#experience" class="btn">Experience</a>
         <a href="#projects" class="btn">Projects</a>
-        <a href="#portfolio" class="btn">Portfolio</a>
+        <a href="projects.html" class="btn">Projects Hub</a>
         <a href="#contact" class="btn">Contact</a>
         <button id="themeToggle" class="toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
       </nav>
@@ -236,7 +242,6 @@
             <p class="hero-subtitle">Senior IT Student • Data Analytics Enthusiast • Automation Specialist</p>
             <div class="hero-cta">
               <a href="#projects" class="cta-primary">View My Work</a>
-              <a href="#resume" class="cta-secondary">Interactive Resume</a>
               <a href="#contact" class="cta-secondary">Get In Touch</a>
             </div>
           </div>
@@ -307,24 +312,6 @@
               <li>SSS‑STEM</li>
               <li>Florida‑Georgia LSAMP</li>
             </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- Interactive Resume -->
-      <section id="resume" class="fade-in" aria-labelledby="resume-title">
-        <h2 id="resume-title">Interactive Resume Snapshot</h2>
-        <div style="display: grid; gap: 1rem; background: var(--secondary); padding: 1.5rem; border-radius: 16px; border-left: 4px solid var(--primary);">
-          <p style="font-size: 1.05rem; color: var(--text-light);">
-            Explore my interactive resume for a complete view of experience, leadership, and technical work. It includes embedded dashboards, project timelines, and live links to deliverables.
-          </p>
-          <ul style="padding-left: 1.2rem; color: var(--text-light);">
-            <li>Downloadable PDF resume for quick reference.</li>
-            <li>Interactive site that highlights ongoing projects and accomplishments.</li>
-          </ul>
-          <div style="display: flex; flex-wrap: wrap; gap: .75rem;">
-            <a class="project-link" href="resume.pdf" download>📄 Download Resume</a>
-            <a class="project-link" href="https://torch.cci.fsu.edu/~jj22e/" target="_blank" rel="noopener">🌐 View Interactive Version</a>
           </div>
         </div>
       </section>
@@ -412,203 +399,16 @@
           </div>
 
           <div class="project-card">
-            <img src="spd-demo-site.svg" alt="Screenshot of the SPD SharePoint Demo Forms portal" width="640" height="190" loading="lazy" />
+            <div class="project-card-illustration" role="presentation" aria-hidden="true"></div>
             <div class="project-card-content">
-              <h3>SPD Demo Site – SharePoint Department Portal</h3>
-              <p>I developed a demo SharePoint site for the Miami-Dade County Strategic Procurement Department to model how internal team portals can be structured for efficiency and collaboration. The site includes a custom navigation panel (Calendar, Documents, Planner, and Support pages), centralized document libraries, and dedicated pages for forms, procurement liaison information, and automated workflows. This project demonstrated my ability to design and configure SharePoint environments that enhance departmental organization, task tracking, and communication across teams.</p>
+              <h3>Contract Payment Management System</h3>
+              <p>Excel-based controls that reconcile invoices, hours, and contract ceilings to prevent overbilling on surtax-funded projects.</p>
               <p class="project-role">My Role<span>Implemented validation logic, created automated alerts, and trained project managers on how to use the tool.</span></p>
               <div class="project-actions">
-                <span class="chip">SharePoint</span><span class="chip">Automation</span>
-                <a class="project-link" href="spd-demo-site.svg" download>🖼️ View Site Illustration</a>
+                <span class="chip">SharePoint</span><span class="chip">IA</span>
+                <a class="project-link" href="spd-demo-site.svg" download>🖼️ View Site Mockup</a>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="projects-footer">
-          <a href="#portfolio">Explore the full portfolio →</a>
-        </div>
-      </section>
-
-      <section id="portfolio" class="fade-in" aria-labelledby="portfolio-title">
-        <h2 id="portfolio-title">Expanded Career Portfolio</h2>
-        <p class="portfolio-lede">Dive deeper into the professional impact, UX strategy, and coursework projects that demonstrate how I connect research, automation, and design to deliver results.</p>
-
-        <div class="portfolio-group">
-          <div class="portfolio-group-header">
-            <h3 id="portfolio-professional">Featured Professional Projects</h3>
-            <p>Data-driven solutions built for public sector partners to automate reporting, improve governance, and elevate stakeholder communication.</p>
-          </div>
-          <div class="grid">
-            <article class="project-card">
-              <img class="project-card-illustration" src="ITS poster 2024-04-09 18_12_33-1.png" alt="Poster summarizing third-party vendor risk" loading="lazy" />
-              <div class="project-card-content">
-                <h3>Third-Party Vendor Risk Assessment</h3>
-                <p>Developed a reusable assessment model that scores vendors against NIST and SOC 2 controls to support procurement decisions.</p>
-                <p class="project-role">My Role<span>Led the control mapping, wrote the scoring formulas, and designed the one-page visualization shared with university leadership.</span></p>
-                <ul class="xp-bullets">
-                  <li>Cut manual review time by creating automated guardrails and conditional alerts.</li>
-                  <li>Equipped the compliance team with a portable dashboard for board updates.</li>
-                </ul>
-                <div class="project-actions">
-                  <span class="chip">Risk</span><span class="chip">Data Visualization</span>
-                  <a class="project-link" href="ITS%20poster%202024-04-09%2018_12_33-1.png" download>📄 View Poster</a>
-                </div>
-              </div>
-            </article>
-            <article class="project-card">
-              <img class="project-card-illustration" src="b7e22824-255e-471d-b768-efcd92ba7d51.png" alt="Excel dashboard showing automated regression testing" loading="lazy" />
-              <div class="project-card-content">
-                <h3>Automated Regression Test Dashboard</h3>
-                <p>Built an Excel and SharePoint solution that tracks bugs, automates notifications, and visualizes release readiness for Strategic Procurement.</p>
-                <p class="project-role">My Role<span>Authored VBA automations, designed the analytics views, and trained QA analysts to maintain the workflow.</span></p>
-                <ul class="xp-bullets">
-                  <li>Replaced multiple manual trackers with a single source of truth.</li>
-                  <li>Drove faster sprint reviews by surfacing blockers in real time.</li>
-                </ul>
-                <div class="project-actions">
-                  <span class="chip">Automation</span><span class="chip">Dashboards</span>
-                  <a class="project-link" href="b7e22824-255e-471d-b768-efcd92ba7d51.png" download>🖼️ Dashboard Snapshot</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="portfolio-group">
-          <div class="portfolio-group-header">
-            <h3 id="portfolio-impact">Additional Impact</h3>
-            <p>Supporting initiatives that scale SharePoint adoption, streamline intake, and clarify knowledge sharing across departments.</p>
-          </div>
-          <div class="grid">
-            <article class="project-card">
-              <img class="project-card-illustration" src="spd-demo-site.svg" alt="Mockup of the SharePoint Demo Forms dashboard" loading="lazy" />
-              <div class="project-card-content">
-                <h3>SharePoint Demo Forms Hub</h3>
-                <p>Built a SharePoint workspace for the Strategic Procurement Department demo environment so designers can quickly access intake forms, approvals, and reference materials.</p>
-                <p class="project-role">My Role<span>Mapped the content architecture, configured reusable page sections, and documented publishing guidelines for the team.</span></p>
-                <ul class="xp-bullets">
-                  <li>Organized 20+ demo forms into intuitive categories with filtering.</li>
-                  <li>Surfaced ownership metadata and last modified details for quick auditing.</li>
-                </ul>
-                <div class="project-actions">
-                  <span class="chip">SharePoint</span><span class="chip">Information Architecture</span>
-                  <a class="project-link" href="spd-demo-site.svg" download>🖼️ View Site Mockup</a>
-                </div>
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-card-content">
-                <h3>SharePoint Workflow Revamp</h3>
-                <p>Re-engineered document routing and approvals in SharePoint to streamline intake for procurement change requests.</p>
-                <p class="project-role">My Role<span>Mapped current-state processes, built automated flows, and documented SOPs for the operations team.</span></p>
-                <div class="project-actions">
-                  <span class="chip">Process Design</span><span class="chip">Power Automate</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="portfolio-group">
-          <div class="portfolio-group-header">
-            <h3 id="portfolio-case">UX &amp; Strategy Case Studies</h3>
-            <p>Human-centered design explorations that pair research, personas, and storytelling to drive product direction.</p>
-          </div>
-          <div class="grid">
-            <article class="project-card">
-              <div class="project-card-content">
-                <h3>OmniLog – Media Logging Platform</h3>
-                <p>Designed a social-first experience for capturing books, shows, and music, including discovery feeds and friend insights to make personal media journeys shareable.</p>
-                <ul class="xp-bullets">
-                  <li>Built social integration, personalized recommendations, and trending dashboards.</li>
-                  <li>Delivered an MVP concept backed by product scope, risk assessment, and rollout plan.</li>
-                </ul>
-                <div class="project-actions">
-                  <a class="project-link" href="OmniLog_Final_Presentation.pptx" download>📄 View Slides</a>
-                </div>
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-card-content">
-                <h3>Robson College Website Redesign</h3>
-                <p>Reimagined information architecture and UX for prospective students, faculty, and alumni through data-backed personas and inclusive design principles.</p>
-                <ul class="xp-bullets">
-                  <li>Synthesized surveys from 2,750+ stakeholders to prioritize content strategy.</li>
-                  <li>Produced annotated wireframes and a phased implementation roadmap.</li>
-                </ul>
-                <div class="project-actions">
-                  <a class="project-link" href="LIS3201_FINAL_PRESENATATION.pptx" download>📄 View Slides</a>
-                </div>
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-card-content">
-                <h3>GetInvolved FSU Campaign</h3>
-                <p>Co-led a multichannel marketing push to grow adoption of FSU’s student engagement platform and highlight organization success stories.</p>
-                <ul class="xp-bullets">
-                  <li>Boosted platform traffic by 42% with coordinated on-campus outreach and digital media.</li>
-                  <li>Developed measurement plans to track channel performance and student sentiment.</li>
-                </ul>
-                <div class="project-actions">
-                  <a class="project-link" href="LIS_4480.pptx" download>📄 View Slides</a>
-                </div>
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-card-content">
-                <h3>Tri-County Humane Society Redesign</h3>
-                <p>Improved volunteer and adopter journeys by streamlining navigation, clarifying content hierarchy, and focusing on mission-critical calls to action.</p>
-                <ul class="xp-bullets">
-                  <li>Created persona-based wireframes emphasizing quick paths to adopt, donate, and volunteer.</li>
-                  <li>Documented IA improvements with annotated site maps and usability heuristics.</li>
-                </ul>
-                <div class="project-actions">
-                  <a class="project-link" href="Information%20architecture%20%234.pdf" download>📄 View PDF</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="portfolio-group">
-          <div class="portfolio-group-header">
-            <h3 id="portfolio-coursework">Coursework &amp; Team Projects</h3>
-            <p>Academic deliverables that highlight leadership, research depth, and iterative front-end development.</p>
-          </div>
-          <div class="grid">
-            <article class="project-card">
-              <div class="project-card-content">
-                <h3>Personal Portfolio Experience</h3>
-                <p>Designed and iterated on this portfolio to highlight technical breadth, storytelling, and responsive front-end development.</p>
-                <ul class="xp-bullets">
-                  <li>Optimized for mobile-first viewing with reusable component styling.</li>
-                  <li>Implemented dark-mode, accessibility enhancements, and contact automations.</li>
-                </ul>
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-card-content">
-                <h3>Leadership Reflection Series</h3>
-                <p>Compiled critical reflection essays around mentorship, communication, and inclusive leadership practices.</p>
-                <ul class="xp-bullets">
-                  <li>Connected academic research with hands-on internship experience.</li>
-                  <li>Outlined growth plans for continued professional development.</li>
-                </ul>
-                <div class="project-actions">
-                  <a class="project-link" href="JimenezJ_Critical_Reflection_Essay.docx.pdf" download>📝 Read Essay</a>
-                </div>
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-card-content">
-                <h3>Information Architecture Research</h3>
-                <p>Evaluated content strategy patterns using the People-Content-Context framework to improve university web ecosystems.</p>
-                <ul class="xp-bullets">
-                  <li>Conducted heuristics and comparative analysis across institutional sites.</li>
-                  <li>Delivered recommendations that informed IA course deliverables.</li>
-                </ul>
-              </div>
-            </article>
           </div>
         </div>
       </section>
@@ -653,9 +453,8 @@
           </div>
         </div>
       </section>
-    </div>
-  </main>
-
+      
+    
   <footer>
     <p>© 2025 John Jimenez • Crafted with passion and precision</p>
     <p style="margin-top:.5rem; opacity:.9;">
