@@ -2,19 +2,378 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=portfolio.html#coursework-title" />
-  <title>Redirecting…</title>
-  <link rel="canonical" href="portfolio.html" />
-  <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Class Projects – John Jimenez</title>
+  <meta name="description" content="Coursework projects from John Jimenez featuring OmniLog, information architecture redesigns, marketing campaigns, and technical labs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; background: #0f172a; color: #f8fafc; text-align: center; padding: 2rem; }
-    a { color: #38bdf8; font-weight: 600; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e90ff;
+      --primary-dark: #0066cc;
+      --secondary: #f8fafc;
+      --accent: #10b981;
+      --text: #0f172a;
+      --text-light: #475569;
+      --border: #e2e8f0;
+      --card: #ffffff;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --shadow: 0 5px 25px rgba(2, 6, 23, 0.08);
+      --ring: 0 0 0 3px rgba(14,165,233,.35);
+    }
+    .dark {
+      --secondary: #0b1220;
+      --card: #0f172a;
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+      --border: #1f2a44;
+      --gradient: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --ring: 0 0 0 3px rgba(124,58,237,.35);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, sans-serif; background: var(--secondary); color: var(--text); line-height: 1.6; overflow-x: hidden; transition: background .3s, color .3s; }
+    :focus-visible { outline: none; box-shadow: var(--ring); border-radius: 8px; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+    .skip-link { position: absolute; left: 0; top: -40px; background: #111827; color: #fff; padding: .6rem 1rem; border-radius: 0 0 .5rem .5rem; z-index: 9999; }
+    .skip-link:focus { top: 0; }
+    header { background: var(--gradient); color: white; padding: .75rem 0; position: fixed; inset: 0 0 auto 0; z-index: 1000; backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); transition: all .3s ease; }
+    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; gap: .75rem; }
+    header h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: .2px; }
+    header h1 a { color: #fff; text-decoration: none; }
+    .nav-buttons { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+    .btn {
+      background: rgba(255,255,255,0.15); color: white; padding: .55rem .9rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: .9rem; transition: all .25s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;
+    }
+    .btn:hover, .btn.active { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); }
+    .toggle { border-radius: 999px; background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.3); color: #fff; padding: .5rem .9rem; cursor: pointer; font-weight: 800; }
+    main { margin-top: 76px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .hero { background: var(--gradient); color: white; padding: 4rem 0; text-align: center; position: relative; overflow: hidden; }
+    .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; display: grid; gap: 1.25rem; }
+    .hero h1 { font-size: 2.75rem; font-weight: 900; letter-spacing: .3px; }
+    .hero-subtitle { font-size: 1.2rem; font-weight: 500; opacity: .95; }
+    .hero-cta { display: inline-flex; gap: .8rem; flex-wrap: wrap; justify-content: center; }
+    .cta-primary { background: var(--accent); color: white; padding: .9rem 1.4rem; border-radius: 999px; text-decoration: none; font-weight: 900; box-shadow: 0 10px 30px rgba(16,185,129,.3); transition: transform .2s ease, box-shadow .2s ease; }
+    .cta-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(16,185,129,.4); }
+    .cta-secondary { background: transparent; color: white; padding: .9rem 1.4rem; border: 2px solid rgba(255,255,255,.3); border-radius: 999px; text-decoration: none; font-weight: 800; }
+    .cta-secondary:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.5); }
+    section { margin-bottom: 2rem; background: var(--card); padding: 2rem; border-radius: 18px; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; position: relative; overflow: hidden; border: 1px solid var(--border); }
+    section:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+    h2 { font-size: 1.9rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text); position: relative; padding-bottom: .5rem; }
+    h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 56px; height: 3px; background: var(--gradient); border-radius: 2px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .project-card { background: var(--card); border-radius: 14px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,.08); transition: transform .2s ease, box-shadow .2s ease; display: flex; flex-direction: column; }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0,0,0,.15); }
+    .project-card-content { padding: 1.25rem; display: grid; gap: .75rem; flex: 1; }
+    .xp-bullets { margin-top: .35rem; color: var(--text-light); padding-left: 1.1rem; }
+    .xp-bullets li { margin-bottom: .4rem; }
+    .project-card-content h3 { font-size: 1.2rem; font-weight: 800; }
+    .project-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .25rem; }
+    .project-link { display: inline-flex; align-items: center; gap: .35rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; padding: .55rem .95rem; border-radius: 999px; border: 1px solid var(--border); background: var(--secondary); transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .project-link:hover { background: rgba(14,165,233,0.12); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,0.12); }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+    .skill-category { background: var(--secondary); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--accent); }
+    .skill-category h3 { margin-bottom: .6rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .contact-item { background: var(--secondary); padding: 1rem; border-radius: 12px; text-align: center; transition: transform .2s; }
+    .contact-item:hover { transform: translateY(-3px); }
+    .contact-item a { color: var(--primary); font-weight: 800; text-decoration: none; }
+    .contact-icons { display:flex; gap:.75rem; justify-content:center; align-items:center; margin-top:.5rem; }
+    .contact-icons img { width:24px; height:24px; }
+    footer { background: var(--gradient); color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: all .6s ease; }
+    .visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .header-content { flex-direction: column; gap: .6rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .hero-cta a { width: 100%; text-align: center; }
+      .container { padding: 1rem; }
+      section { padding: 1.25rem; }
+    }
+    img { max-width: 100%; height: auto; }
+    input, textarea, button { font-size: 16px; min-height: 44px; }
+    .btn, .cta-primary, .cta-secondary { min-height: 44px; }
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.35rem; }
+      .btn { padding: .7rem 1rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero-subtitle { font-size: .95rem; }
+    }
   </style>
 </head>
 <body>
-  <p>
-    Redirecting to the updated <a href="portfolio.html#coursework-title">Portfolio</a>…
-    If you are not redirected automatically, please click the link.
-  </p>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header>
+    <div class="header-content">
+      <h1><a href="index.html" aria-label="Home">John Jimenez</a></h1>
+      <nav class="nav-buttons" aria-label="Primary">
+        <a href="index.html#about" class="btn">About</a>
+        <a href="index.html#experience" class="btn">Experience</a>
+        <a href="index.html#projects" class="btn">Projects</a>
+        <a href="case-studies.html" class="btn">Case Studies</a>
+        <a href="class-projects.html" class="btn active" aria-current="page">Class Projects</a>
+        <a href="index.html#contact" class="btn">Contact</a>
+        <button id="themeToggle" class="toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Class Projects</h1>
+        <p class="hero-subtitle">Hands-on coursework that blends research, strategy, and technical execution across UX, analytics, and leadership.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="cta-primary">View highlights</a>
+          <a href="index.html#contact" class="cta-secondary">Let’s collaborate</a>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <section id="projects" class="fade-in" aria-labelledby="projects-title">
+        <h2 id="projects-title">Featured Coursework</h2>
+        <div class="grid">
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>OmniLog – Ultimate Media Companion</h3>
+              <p>Developed a concept for a social platform that lets users log, review, and share everything they read, watch, and listen to.</p>
+              <ul class="xp-bullets">
+                <li><strong>Vision:</strong> Turn passive media consumption into reflective, community-driven experiences.</li>
+                <li><strong>Highlights:</strong> Centralized logging, social integrations, personalized recommendations, and risk planning.</li>
+                <li><strong>Outcome:</strong> Fully scoped MVP with cost breakdown, communication plan, and seven-month delivery roadmap.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="OmniLog%20Final%20Presentation%20(1).pptx" download>📄 Full Presentation</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Information Architecture – Tri-County Humane Society</h3>
+              <p>Redesigned the site’s structure to improve volunteer engagement, pet adoption visibility, and donor pathways.</p>
+              <ul class="xp-bullets">
+                <li>Created personas for adopters, volunteers, donors, and pet care researchers.</li>
+                <li>Delivered annotated wireframes, sitemap revisions, and reflective analysis using People-Content-Context.</li>
+                <li>Recommended streamlined announcements, site-wide search, and simplified header/footer patterns.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="Information%20architecture%20%234.pdf" download>📄 Wireframe Prototype</a>
+                <a class="project-link" href="JimenezJ_Critical_Reflection_Essay.docx.pdf" download>📝 Reflection Essay</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>GetInvolved FSU Promotion Campaign</h3>
+              <p>Led the team elevating awareness for FSU’s student engagement platform through integrated marketing tactics.</p>
+              <ul class="xp-bullets">
+                <li>Executed flyer distribution, classroom visits, and digital outreach.</li>
+                <li>Achieved a 42% traffic increase and exceeded engagement goals across key metrics.</li>
+                <li>Produced sustainability recommendations for continued community momentum.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="Template%20for%20FINAL%20presentation%20SP24%20(1).pptx" download>📄 Campaign Deck</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Robson College Website Redesign</h3>
+              <p>Facilitated a comprehensive redesign that addressed accessibility, enrollment funnels, and content management.</p>
+              <ul class="xp-bullets">
+                <li>Surveyed 2,750+ stakeholders to uncover usability pain points and opportunity areas.</li>
+                <li>Outlined technology stack, hosting plan, security measures, and phased deployment budget.</li>
+                <li>Prototyped advanced search and adaptable layout system tailored for core audiences.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="LIS3201%20FINAL%20PRESENATATION%20(1).pptx" download>📄 Project Presentation</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Personal Portfolio Experience</h3>
+              <p>Designed and built a responsive personal portfolio to showcase skills, work samples, and a contact funnel for prospective collaborators.</p>
+              <ul class="xp-bullets">
+                <li>Implemented modular sections for skills, projects, and recognition with accessibility best practices.</li>
+                <li>Integrated Formspree-powered contact form and analytics-friendly structure.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="index.html">🌐 View Live Portfolio</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Database Design Lab</h3>
+              <p>Constructed a relational database in MySQL for a mock company, focusing on normalization, data integrity, and reporting queries.</p>
+              <ul class="xp-bullets">
+                <li>Authored entity-relationship diagrams and enforced relational constraints.</li>
+                <li>Wrote multi-table joins, aggregate queries, and stored procedures for analytics use cases.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Network Security Assessment</h3>
+              <p>Produced a comprehensive security plan for a small business environment with layered defenses and incident response workflows.</p>
+              <ul class="xp-bullets">
+                <li>Conducted vulnerability scans, risk assessments, and mitigation prioritization.</li>
+                <li>Outlined policies for access control, monitoring, and disaster recovery.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="fade-in" aria-labelledby="themes-title">
+        <h2 id="themes-title">Course Themes &amp; Strengths</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Leadership &amp; Collaboration</h3>
+            <p style="color: var(--text-light);">Guided multidisciplinary teams, scoped deliverables, and kept projects aligned to stakeholder expectations.</p>
+          </div>
+          <div class="skill-category">
+            <h3>UX &amp; Communication</h3>
+            <p style="color: var(--text-light);">Translating research into clear narratives, presentations, and prototypes that resonate with non-technical audiences.</p>
+          </div>
+          <div class="skill-category">
+            <h3>Technical Execution</h3>
+            <p style="color: var(--text-light);">Applying database, automation, and analytics skills to deliver measurable improvements across assignments.</p>
+          </div>
+        </div>
+      </section>
+      <section class="fade-in" aria-labelledby="disclaimer-title">
+        <h2 id="disclaimer-title">Hosting Note</h2>
+        <p style="font-size: 1.05rem; color: var(--text-light);">
+          This portfolio is hosted on the Florida State University torch server (<a href="https://torch.cci.fsu.edu/~jj22e/" target="_blank" rel="noopener" style="color: var(--primary-dark); font-weight: 700;">torch.cci.fsu.edu/~jj22e</a>). The perspectives shared reflect my personal views and academic work.
+        </p>
+      </section>
+      <section id="contact" class="fade-in" aria-labelledby="contact-title">
+        <h2 id="contact-title">Connect With Me</h2>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <h3>Email</h3>
+            <a href="mailto:Jimenezjohn2529@gmail.com">Jimenezjohn2529@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/john--jimenez" target="_blank" rel="noopener">john--jimenez</a>
+            <div class="contact-icons"><img src="linkedin_icon.png" alt="LinkedIn" width="24" height="24" loading="lazy" /></div>
+          </div>
+          <div class="contact-item">
+            <h3>GitHub</h3>
+            <a href="https://github.com/johnjimenez-it" target="_blank" rel="noopener">johnjimenez-it</a>
+            <div class="contact-icons"><img src="github-mark.png" alt="GitHub" width="24" height="24" loading="lazy" /></div>
+          </div>
+          <div class="contact-item" style="grid-column: span 2;">
+            <h3>Send Me a Message</h3>
+            <form id="contactForm" action="https://formspree.io/f/mblkpqae" method="POST" style="display: grid; gap: .6rem; max-width: 420px; margin: auto;">
+              <input type="text" name="name" placeholder="Your Name" aria-label="Your Name" required style="padding: .65rem; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text);" />
+              <input type="email" name="email" placeholder="Your Email" aria-label="Your Email" required style="padding: .65rem; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text);" />
+              <textarea name="message" placeholder="Your Message" aria-label="Your Message" rows="5" required style="padding: .65rem; border-radius: 8px; border: 1px solid var(--border); background: var(--card); color: var(--text);"></textarea>
+              <button type="submit" style="padding: .8rem; border-radius: 10px; background: var(--primary); color: white; border: none; cursor: pointer; font-weight: 900;">Send</button>
+              <p id="formStatus" role="status" style="display:none; font-weight:800;"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <p>© 2025 John Jimenez • Crafted with passion and precision</p>
+    <p style="margin-top:.5rem; opacity:.9;">
+      <a href="mailto:Jimenezjohn2529@gmail.com" style="color:#fff; text-decoration:none;">Email</a> |
+      <a href="https://torch.cci.fsu.edu/~jj22e/" target="_blank" rel="noopener" style="color:#fff; text-decoration:none;">Website</a> |
+      <a href="https://github.com/johnjimenez-it" target="_blank" rel="noopener" style="color:#fff; text-decoration:none;">GitHub</a>
+    </p>
+  </footer>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(102, 126, 234, 0.95)';
+        header.style.backdropFilter = 'blur(20px)';
+      } else {
+        header.style.background = '';
+        header.style.backdropFilter = 'blur(10px)';
+      }
+    });
+
+    const toggle = document.getElementById('themeToggle');
+    if (toggle) {
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const stored = localStorage.getItem('jj-theme');
+      if ((stored === 'dark') || (!stored && prefersDark)) document.documentElement.classList.add('dark');
+      const syncToggle = () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        toggle.textContent = isDark ? '☀' : '☾';
+        toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      };
+      syncToggle();
+      toggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        const isDark = document.documentElement.classList.contains('dark');
+        localStorage.setItem('jj-theme', isDark ? 'dark' : 'light');
+        syncToggle();
+      });
+    }
+
+    const form = document.getElementById('contactForm');
+    const statusEl = document.getElementById('formStatus');
+    if (form && statusEl) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusEl.style.display = 'block';
+        statusEl.style.color = 'var(--text)';
+        statusEl.textContent = 'Sending...';
+        const data = new FormData(form);
+        try {
+          const resp = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+          if (resp.ok) {
+            statusEl.textContent = 'Thanks! Your message was sent.';
+            statusEl.style.color = 'var(--accent)';
+            form.reset();
+          } else {
+            statusEl.textContent = 'Oops, something went wrong. Try again or email me directly.';
+            statusEl.style.color = '#ef4444';
+          }
+        } catch (err) {
+          statusEl.textContent = 'Network error. Please try again.';
+          statusEl.style.color = '#ef4444';
+        }
+      });
+    }
+
+    function syncMainOffset() {
+      const header = document.querySelector('header');
+      const main = document.querySelector('main');
+      if (header && main) {
+        main.style.marginTop = header.offsetHeight + 'px';
+      }
+    }
+    window.addEventListener('load', syncMainOffset);
+    window.addEventListener('resize', syncMainOffset);
+  </script>
 </body>
 </html>

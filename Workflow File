@@ -1,0 +1,22 @@
+.github/workflows/deploy.yml
+name: Deploy to FSU WebDAV
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upload to FSU WebDAV
+        uses: benc-uk/webdav-upload@v2
+        with:
+          server: https://mywebdav.fsu.edu/jj22e
+          upload-from: .
+          upload-to: /
+          username: ${{ secrets.FSU_USERNAME }}
+          password: ${{ secrets.FSU_PASSWORD }}
