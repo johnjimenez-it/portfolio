@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – John Jimenez</title>
+  <meta name="description" content="Career portfolio for John Jimenez featuring professional analytics work, UX case studies, and coursework projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e90ff;
+      --primary-dark: #0066cc;
+      --secondary: #f8fafc;
+      --accent: #10b981;
+      --text: #0f172a;
+      --text-light: #475569;
+      --border: #e2e8f0;
+      --card: #ffffff;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --shadow: 0 5px 25px rgba(2, 6, 23, 0.08);
+      --ring: 0 0 0 3px rgba(14,165,233,.35);
+    }
+    .dark {
+      --secondary: #0b1220;
+      --card: #0f172a;
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+      --border: #1f2a44;
+      --gradient: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --ring: 0 0 0 3px rgba(124,58,237,.35);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, sans-serif; background: var(--secondary); color: var(--text); line-height: 1.6; overflow-x: hidden; transition: background .3s, color .3s; }
+    :focus-visible { outline: none; box-shadow: var(--ring); border-radius: 8px; }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+    .skip-link { position: absolute; left: 0; top: -40px; background: #111827; color: #fff; padding: .6rem 1rem; border-radius: 0 0 .5rem .5rem; z-index: 9999; }
+    .skip-link:focus { top: 0; }
+    header { background: var(--gradient); color: white; padding: .75rem 0; position: fixed; inset: 0 0 auto 0; z-index: 1000; backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); transition: all .3s ease; }
+    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; gap: .75rem; }
+    header h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: .2px; }
+    header h1 a { color: #fff; text-decoration: none; }
+    .nav-buttons { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+    .btn {
+      background: rgba(255,255,255,0.15); color: white; padding: .55rem .9rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: .9rem; transition: all .25s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;
+    }
+    .btn:hover, .btn.active { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); }
+    .toggle { border-radius: 999px; background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.3); color: #fff; padding: .5rem .9rem; cursor: pointer; font-weight: 800; }
+    main { margin-top: 76px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .hero { background: var(--gradient); color: white; padding: 4rem 0; text-align: center; position: relative; overflow: hidden; }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; display: grid; gap: 1.25rem; }
+    .hero h1 { font-size: 2.75rem; font-weight: 900; letter-spacing: .3px; }
+    .hero-subtitle { font-size: 1.15rem; font-weight: 500; opacity: .95; }
+    .hero-cta { display: inline-flex; gap: .8rem; flex-wrap: wrap; justify-content: center; }
+    .cta-primary { background: var(--accent); color: white; padding: .9rem 1.4rem; border-radius: 999px; text-decoration: none; font-weight: 900; box-shadow: 0 10px 30px rgba(16,185,129,.3); transition: transform .2s ease, box-shadow .2s ease; }
+    .cta-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(16,185,129,.4); }
+    section { margin-bottom: 2rem; background: var(--card); padding: 2rem; border-radius: 18px; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; position: relative; overflow: hidden; border: 1px solid var(--border); }
+    section:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+    h2 { font-size: 1.9rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text); position: relative; padding-bottom: .5rem; }
+    h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 56px; height: 3px; background: var(--gradient); border-radius: 2px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .project-card { background: var(--card); border-radius: 14px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,.08); transition: transform .2s ease, box-shadow .2s ease; display: flex; flex-direction: column; }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0,0,0,.15); }
+    .project-media { width: 100%; height: 200px; object-fit: cover; }
+    .project-card-content { padding: 1.25rem; display: grid; gap: .75rem; flex: 1; }
+    .project-card-content h3 { font-size: 1.2rem; font-weight: 800; }
+    .project-role { font-weight: 700; color: var(--text); }
+    .project-role span { display: block; font-weight: 600; color: var(--text-light); margin-top: .25rem; }
+    .xp-bullets { margin-top: .35rem; color: var(--text-light); padding-left: 1.1rem; }
+    .xp-bullets li { margin-bottom: .35rem; }
+    .project-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .chip { display: inline-block; padding: .35rem .7rem; border-radius: 999px; background: var(--secondary); color: var(--text-light); font-weight: 800; font-size: .8rem; border: 1px solid var(--border); }
+    .project-link { display: inline-flex; align-items: center; gap: .35rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; padding: .55rem .95rem; border-radius: 999px; border: 1px solid var(--border); background: var(--secondary); transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .project-link:hover { background: rgba(14,165,233,0.12); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,0.12); }
+    footer { background: var(--gradient); color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: all .6s ease; }
+    .visible { opacity: 1; transform: translateY(0); }
+    @media (max-width: 768px) {
+      .header-content { flex-direction: column; gap: .6rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .hero-cta a { width: 100%; text-align: center; }
+      .container { padding: 1rem; }
+      section { padding: 1.25rem; }
+    }
+    img { max-width: 100%; height: auto; }
+    input, textarea, button { font-size: 16px; min-height: 44px; }
+    .btn, .cta-primary { min-height: 44px; }
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.35rem; }
+      .btn { padding: .7rem 1rem; }
+      .hero h1 { font-size: 2rem; }
+      .hero-subtitle { font-size: .95rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header>
+    <div class="header-content">
+      <h1><a href="index.html" aria-label="Home">John Jimenez</a></h1>
+      <nav class="nav-buttons" aria-label="Primary">
+        <a href="index.html#about" class="btn">About</a>
+        <a href="index.html#experience" class="btn">Experience</a>
+        <a href="index.html#projects" class="btn">Highlights</a>
+        <a href="portfolio.html" class="btn active" aria-current="page">Portfolio</a>
+        <a href="index.html#contact" class="btn">Contact</a>
+        <button id="themeToggle" class="toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Career Portfolio</h1>
+        <p class="hero-subtitle">A curated mix of professional analytics, UX case studies, and coursework projects that showcase how I turn research and data into action.</p>
+        <div class="hero-cta">
+          <a href="#career" class="cta-primary">Jump to featured work</a>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <section id="career" class="fade-in" aria-labelledby="career-title">
+        <h2 id="career-title">Featured Professional Projects</h2>
+        <div class="grid">
+          <article class="project-card">
+            <img class="project-media" src="ITS poster 2024-04-09 18_12_33-1.png" alt="Poster summarizing third-party vendor risk" loading="lazy" width="640" height="200" />
+            <div class="project-card-content">
+              <h3>Third-Party Vendor Risk Assessment</h3>
+              <p>Developed a reusable assessment model that scores third-party vendors against NIST and SOC 2 controls to support procurement decisions.</p>
+              <p class="project-role">My Role<span>Led the control mapping, wrote the scoring formulas, and designed the one-page visualization shared with university leadership.</span></p>
+              <ul class="xp-bullets">
+                <li>Cut manual review time by creating automated guardrails and conditional alerts.</li>
+                <li>Equipped the compliance team with a portable dashboard for board updates.</li>
+              </ul>
+              <div class="project-actions">
+                <span class="chip">Risk</span><span class="chip">Data Visualization</span>
+                <a class="project-link" href="ITS%20poster%202024-04-09%2018_12_33-1.png" download>📄 View Poster</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <img class="project-media" src="b7e22824-255e-471d-b768-efcd92ba7d51.png" alt="Excel dashboard showing automated regression testing" loading="lazy" width="640" height="200" />
+            <div class="project-card-content">
+              <h3>Automated Regression Test Dashboard</h3>
+              <p>Built an Excel and SharePoint solution that tracks bugs, automates notifications, and visualizes release readiness for Strategic Procurement.</p>
+              <p class="project-role">My Role<span>Authored VBA automations, designed the analytics views, and trained QA analysts to maintain the workflow.</span></p>
+              <ul class="xp-bullets">
+                <li>Replaced multiple manual trackers with a single source of truth.</li>
+                <li>Drove faster sprint reviews by surfacing blockers in real time.</li>
+              </ul>
+              <div class="project-actions">
+                <span class="chip">Automation</span><span class="chip">Dashboards</span>
+                <a class="project-link" href="b7e22824-255e-471d-b768-efcd92ba7d51.png" download>🖼️ Dashboard Snapshot</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="fade-in" aria-labelledby="impact-title">
+        <h2 id="impact-title">Additional Impact</h2>
+        <div class="grid">
+          <article class="project-card">
+            <img class="project-media" src="spd-demo-site.svg" alt="Mockup of the SharePoint Demo Forms dashboard" loading="lazy" width="640" height="200" />
+            <div class="project-card-content">
+              <h3>SharePoint Demo Forms Hub</h3>
+              <p>Built a SharePoint workspace for the Strategic Procurement Department demo environment so designers can quickly access intake forms, approvals, and reference materials.</p>
+              <p class="project-role">My Role<span>Mapped the content architecture, configured reusable page sections, and documented publishing guidelines for the team.</span></p>
+              <ul class="xp-bullets">
+                <li>Organized 20+ demo forms into intuitive categories with filtering.</li>
+                <li>Surfaced ownership metadata and last modified details for quick auditing.</li>
+              </ul>
+              <div class="project-actions">
+                <span class="chip">SharePoint</span><span class="chip">Information Architecture</span>
+                <a class="project-link" href="spd-demo-site.svg" download>🖼️ View Site Mockup</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>SharePoint Workflow Revamp</h3>
+              <p>Re-engineered document routing and approvals in SharePoint to streamline intake for procurement change requests.</p>
+              <p class="project-role">My Role<span>Mapped current-state processes, built automated flows, and documented SOPs for the operations team.</span></p>
+              <div class="project-actions">
+                <span class="chip">Process Design</span><span class="chip">Power Automate</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="fade-in" aria-labelledby="case-title">
+        <h2 id="case-title">UX &amp; Strategy Case Studies</h2>
+        <div class="grid">
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>OmniLog – Media Logging Platform</h3>
+              <p>Designed a social-first experience for capturing books, shows, and music, including discovery feeds and friend insights to make personal media journeys shareable.</p>
+              <ul class="xp-bullets">
+                <li>Built social integration, personalized recommendations, and trending dashboards.</li>
+                <li>Delivered an MVP concept backed by product scope, risk assessment, and rollout plan.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="OmniLog_Final_Presentation.pptx" download>📄 View Slides</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Robson College Website Redesign</h3>
+              <p>Reimagined information architecture and UX for prospective students, faculty, and alumni through data-backed personas and inclusive design principles.</p>
+              <ul class="xp-bullets">
+                <li>Synthesized surveys from 2,750+ stakeholders to prioritize content strategy.</li>
+                <li>Produced annotated wireframes and a phased implementation roadmap.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="LIS3201_FINAL_PRESENATATION.pptx" download>📄 View Slides</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>GetInvolved FSU Campaign</h3>
+              <p>Co-led a multichannel marketing push to grow adoption of FSU’s student engagement platform and highlight organization success stories.</p>
+              <ul class="xp-bullets">
+                <li>Boosted platform traffic by 42% with coordinated on-campus outreach and digital media.</li>
+                <li>Developed measurement plans to track channel performance and student sentiment.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="LIS_4480.pptx" download>📄 View Slides</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Tri-County Humane Society Redesign</h3>
+              <p>Improved volunteer and adopter journeys by streamlining navigation, clarifying content hierarchy, and focusing on mission-critical calls to action.</p>
+              <ul class="xp-bullets">
+                <li>Created persona-based wireframes emphasizing quick paths to adopt, donate, and volunteer.</li>
+                <li>Documented IA improvements with annotated site maps and usability heuristics.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="Information%20architecture%20%234.pdf" download>📄 View PDF</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="fade-in" aria-labelledby="coursework-title">
+        <h2 id="coursework-title">Coursework &amp; Team Projects</h2>
+        <div class="grid">
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Personal Portfolio Experience</h3>
+              <p>Designed and iterated on this portfolio to highlight technical breadth, storytelling, and responsive front-end development.</p>
+              <ul class="xp-bullets">
+                <li>Optimized for mobile-first viewing with reusable component styling.</li>
+                <li>Implemented dark-mode, accessibility enhancements, and contact automations.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Leadership Reflection Series</h3>
+              <p>Compiled critical reflection essays around mentorship, communication, and inclusive leadership practices.</p>
+              <ul class="xp-bullets">
+                <li>Connected academic research with hands-on internship experience.</li>
+                <li>Outlined growth plans for continued professional development.</li>
+              </ul>
+              <div class="project-actions">
+                <a class="project-link" href="JimenezJ_Critical_Reflection_Essay.docx.pdf" download>📝 Read Essay</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-content">
+              <h3>Information Architecture Research</h3>
+              <p>Evaluated content strategy patterns using the People-Content-Context framework to improve university web ecosystems.</p>
+              <ul class="xp-bullets">
+                <li>Conducted heuristics and comparative analysis across institutional sites.</li>
+                <li>Delivered recommendations that informed IA course deliverables.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer>
+    <p>© 2025 John Jimenez • Explore more on the <a href="index.html" style="color:#fff; text-decoration: none;">portfolio home</a></p>
+  </footer>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    const toggle = document.getElementById('themeToggle');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const stored = localStorage.getItem('jj-theme');
+    if ((stored === 'dark') || (!stored && prefersDark)) document.documentElement.classList.add('dark');
+    const setToggleState = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      toggle.textContent = isDark ? '☀' : '☾';
+      toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      toggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    };
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('jj-theme', isDark ? 'dark' : 'light');
+      setToggleState();
+    });
+    setToggleState();
+  </script>
+</body>
+</html>
