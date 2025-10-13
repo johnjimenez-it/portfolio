@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900" role="img" aria-labelledby="title desc">
+  <title id="title">Screenshot mockup of the SharePoint Demo Forms site</title>
+  <desc id="desc">Illustration inspired by the SharePoint Demo Forms hub showing a purple header bar, navigation sidebar, and a main table of demo forms.</desc>
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7426f2" />
+      <stop offset="100%" stop-color="#4f7cf8" />
+    </linearGradient>
+    <linearGradient id="sidebarGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f7f9fc" />
+      <stop offset="100%" stop-color="#e4ecf9" />
+    </linearGradient>
+    <linearGradient id="contentGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#edf2fb" />
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="900" fill="#f5f7fb" />
+  <rect x="0" y="0" width="1440" height="120" fill="url(#headerGradient)" />
+  <rect x="0" y="120" width="280" height="780" fill="url(#sidebarGradient)" />
+  <rect x="280" y="120" width="1160" height="780" rx="24" fill="url(#contentGradient)" />
+
+  <!-- Header elements -->
+  <rect x="40" y="40" width="180" height="40" rx="20" fill="rgba(255,255,255,0.2)" />
+  <rect x="240" y="40" width="120" height="40" rx="20" fill="rgba(255,255,255,0.2)" />
+  <rect x="380" y="40" width="120" height="40" rx="20" fill="rgba(255,255,255,0.2)" />
+  <rect x="520" y="40" width="200" height="40" rx="20" fill="rgba(255,255,255,0.4)" />
+  <rect x="1240" y="32" width="140" height="56" rx="28" fill="#ffffff" opacity="0.8" />
+
+  <!-- Sidebar navigation -->
+  <g fill="#58617a">
+    <rect x="40" y="160" width="200" height="44" rx="12" fill="#ffffff" opacity="0.85" />
+    <rect x="40" y="220" width="200" height="44" rx="12" opacity="0.4" />
+    <rect x="40" y="280" width="200" height="44" rx="12" opacity="0.25" />
+    <rect x="40" y="340" width="200" height="44" rx="12" opacity="0.25" />
+    <rect x="40" y="400" width="200" height="44" rx="12" opacity="0.25" />
+  </g>
+  <rect x="40" y="470" width="200" height="1" fill="#cbd4e6" />
+  <rect x="40" y="500" width="200" height="44" rx="12" fill="#ffffff" opacity="0.6" />
+  <rect x="40" y="560" width="200" height="44" rx="12" fill="#ffffff" opacity="0.45" />
+
+  <!-- Main title -->
+  <text x="320" y="200" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="700" fill="#2a3459">SPD Demo Site</text>
+  <text x="320" y="250" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#5b678d">Demo Forms</text>
+
+  <!-- Command bar -->
+  <rect x="320" y="280" width="180" height="40" rx="12" fill="#ffffff" opacity="0.9" />
+  <rect x="512" y="280" width="180" height="40" rx="12" fill="#ffffff" opacity="0.6" />
+  <rect x="704" y="280" width="180" height="40" rx="12" fill="#ffffff" opacity="0.45" />
+  <rect x="896" y="280" width="220" height="40" rx="20" fill="#ffffff" opacity="0.3" />
+
+  <!-- Table header -->
+  <rect x="320" y="340" width="1080" height="56" rx="16" fill="#d9e2f5" opacity="0.8" />
+  <text x="340" y="376" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#344161">Name</text>
+  <text x="680" y="376" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#344161">Modified</text>
+  <text x="940" y="376" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#344161">Modified By</text>
+  <text x="1200" y="376" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="600" fill="#344161">Add columns</text>
+
+  <!-- Table rows -->
+  <g fill="#ffffff" opacity="0.95">
+    <rect x="320" y="404" width="1080" height="68" rx="16" />
+    <rect x="320" y="480" width="1080" height="68" rx="16" />
+    <rect x="320" y="556" width="1080" height="68" rx="16" />
+    <rect x="320" y="632" width="1080" height="68" rx="16" />
+    <rect x="320" y="708" width="1080" height="68" rx="16" />
+  </g>
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#46506f">
+    <text x="340" y="444">Approval Request for Department Designer</text>
+    <text x="340" y="520">Department Designer Assignment Form</text>
+    <text x="340" y="596">FormApprovalsResponse_2024-08-07</text>
+    <text x="340" y="672">FormApprovalsResponse_2024-08-06</text>
+    <text x="340" y="748">SPD Demo Intake Form</text>
+  </g>
+  <g font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#6b7593">
+    <text x="680" y="444">August 7, 2024</text>
+    <text x="680" y="520">August 7, 2024</text>
+    <text x="680" y="596">August 7, 2024</text>
+    <text x="680" y="672">August 6, 2024</text>
+    <text x="680" y="748">August 6, 2024</text>
+
+    <text x="940" y="444">jimenez, john (CITT)</text>
+    <text x="940" y="520">jimenez, john (CITT)</text>
+    <text x="940" y="596">jimenez, john (CITT)</text>
+    <text x="940" y="672">jimenez, john (CITT)</text>
+    <text x="940" y="748">jimenez, john (CITT)</text>
+  </g>
+
+  <!-- Callout card -->
+  <rect x="320" y="800" width="320" height="72" rx="18" fill="#ffffff" opacity="0.88" />
+  <text x="340" y="844" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#46506f">Add shortcut to OneDrive</text>
+</svg>
