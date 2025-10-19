@@ -36,6 +36,11 @@
       --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       --shadow: 0 5px 25px rgba(2, 6, 23, 0.08);
       --ring: 0 0 0 3px rgba(14,165,233,.35);
+      --header-gradient: linear-gradient(120deg, #6366f1 0%, #9333ea 100%);
+      --header-pill-bg: rgba(255,255,255,0.12);
+      --header-pill-border: rgba(255,255,255,0.28);
+      --header-button-bg: linear-gradient(135deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.08) 100%);
+      --header-button-hover: rgba(255,255,255,0.35);
     }
     .dark {
       --secondary: #0b1220;
@@ -46,6 +51,11 @@
       --gradient: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%);
       --shadow: 0 10px 30px rgba(0,0,0,0.35);
       --ring: 0 0 0 3px rgba(124,58,237,.35);
+      --header-gradient: linear-gradient(120deg, #0ea5e9 0%, #7c3aed 100%);
+      --header-pill-bg: rgba(15,23,42,0.45);
+      --header-pill-border: rgba(255,255,255,0.16);
+      --header-button-bg: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
+      --header-button-hover: rgba(255,255,255,0.22);
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, sans-serif; background: var(--secondary); color: var(--text); line-height: 1.6; overflow-x: hidden; transition: background .3s, color .3s; }
@@ -65,21 +75,93 @@
     .skip-link:focus { top: 0; }
 
     header {
-      background: var(--gradient); color: white; padding: .75rem 0; position: fixed; inset: 0 0 auto 0; z-index: 1000; backdrop-filter: blur(10px); box-shadow: 0 2px 20px rgba(0,0,0,0.1); transition: all .3s ease;
+      background: var(--header-gradient);
+      color: #fff;
+      padding: .85rem 0;
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      box-shadow: 0 20px 45px rgba(15,23,42,0.18);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
     }
-    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1rem; gap: .75rem; }
-    header h1 { font-size: 1.6rem; font-weight: 800; letter-spacing: .2px; }
-    header h1 a { color: #fff; text-decoration: none; }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 1.5rem;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: .3px;
+      text-shadow: 0 8px 22px rgba(15,23,42,0.35);
+    }
+    header h1 a {
+      color: #fff;
+      text-decoration: none;
+    }
 
-    .nav-buttons { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; }
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .45rem;
+      border-radius: 999px;
+      background: var(--header-pill-bg);
+      border: 1px solid var(--header-pill-border);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 20px 35px rgba(15,23,42,0.18);
+      backdrop-filter: blur(16px);
+    }
     .btn {
-      background: rgba(255,255,255,0.15); color: white; padding: .55rem .9rem; border: 2px solid rgba(255,255,255,0.3); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: .9rem; transition: all .25s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--header-button-bg);
+      color: #fff;
+      padding: .55rem 1.1rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .2px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 1px rgba(15,23,42,0.08);
+      position: relative;
     }
-    .btn:hover, .btn.active { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); }
+    .btn:hover,
+    .btn:focus-visible,
+    .btn.active {
+      transform: translateY(-2px);
+      background: var(--header-button-hover);
+      border-color: rgba(255,255,255,0.6);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 12px 26px rgba(15,23,42,0.25);
+    }
 
-    .toggle { border-radius: 999px; background: rgba(255,255,255,.15); border: 2px solid rgba(255,255,255,.3); color: #fff; padding: .5rem .9rem; cursor: pointer; font-weight: 800; }
+    .toggle {
+      border-radius: 999px;
+      background: var(--header-button-bg);
+      border: 1px solid transparent;
+      color: #fff;
+      padding: .55rem .95rem;
+      cursor: pointer;
+      font-weight: 800;
+      min-width: 44px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 1px rgba(15,23,42,0.08);
+    }
+    .toggle:hover,
+    .toggle:focus-visible {
+      transform: translateY(-2px);
+      background: var(--header-button-hover);
+      border-color: rgba(255,255,255,0.6);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 12px 26px rgba(15,23,42,0.25);
+    }
 
-    main { margin-top: 76px; }
+    main { margin-top: 90px; }
     .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
 
     /* ---------- Hero ---------- */
@@ -153,8 +235,8 @@
 
     /* ---------- Responsive ---------- */
     @media (max-width: 768px) {
-      .header-content { flex-direction: column; gap: .6rem; align-items: stretch; }
-      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding-bottom: .25rem; -webkit-overflow-scrolling: touch; }
+      .header-content { flex-direction: column; gap: .75rem; align-items: stretch; }
+      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding: .4rem; -webkit-overflow-scrolling: touch; }
       .nav-buttons::-webkit-scrollbar { display: none; }
       .hero { padding: 3.25rem 0 3rem; }
       .hero-inner { gap: 1.5rem; }
@@ -200,9 +282,8 @@
       <nav class="nav-buttons" aria-label="Primary">
         <a href="#about" class="btn">About</a>
         <a href="#experience" class="btn">Experience</a>
-        <a href="#projects" class="btn">Projects</a>
+        <a href="#projects" class="btn">Highlights</a>
         <a href="projects.html" class="btn">Career Portfolio</a>
-        <a href="#contact" class="btn">Contact</a>
         <button id="themeToggle" class="toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
       </nav>
     </div>
