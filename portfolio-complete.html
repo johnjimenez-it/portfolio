@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John Jimenez – Portfolio</title>
+
+  <!-- Meta / SEO -->
+  <meta name="description" content="John Jimenez – Senior IT student focused on data analytics, automation, and clean UX. Explore projects, experience, and contact details." />
+  <meta name="keywords" content="John Jimenez, IT, Data Analytics, Automation, SharePoint, Power Automate, Excel, Power BI, Portfolio" />
+  <meta property="og:title" content="John Jimenez - Portfolio" />
+  <meta property="og:description" content="Senior IT Student • Data Analytics Enthusiast • Automation Specialist" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <!-- Fonts performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload hero image to avoid CLS -->
+  <link rel="preload" as="image" href="profile.jpg" imagesizes="(max-width: 768px) 150px, 150px" />
+
+  <style>
+    /* ---------- Base / Theme ---------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #1e90ff;
+      --primary-dark: #0066cc;
+      --secondary: #f8fafc;
+      --accent: #10b981;
+      --text: #0f172a;
+      --text-light: #475569;
+      --border: #e2e8f0;
+      --card: #ffffff;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --shadow: 0 5px 25px rgba(2, 6, 23, 0.08);
+      --ring: 0 0 0 3px rgba(14,165,233,.35);
+      --header-gradient: linear-gradient(120deg, #6366f1 0%, #9333ea 100%);
+      --header-pill-bg: rgba(255,255,255,0.12);
+      --header-pill-border: rgba(255,255,255,0.28);
+      --header-button-bg: linear-gradient(135deg, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.08) 100%);
+      --header-button-hover: rgba(255,255,255,0.35);
+    }
+    .dark {
+      --secondary: #0b1220;
+      --card: #0f172a;
+      --text: #e2e8f0;
+      --text-light: #94a3b8;
+      --border: #1f2a44;
+      --gradient: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --ring: 0 0 0 3px rgba(124,58,237,.35);
+      --header-gradient: linear-gradient(120deg, #0ea5e9 0%, #7c3aed 100%);
+      --header-pill-bg: rgba(15,23,42,0.45);
+      --header-pill-border: rgba(255,255,255,0.16);
+      --header-button-bg: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
+      --header-button-hover: rgba(255,255,255,0.22);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, sans-serif; background: var(--secondary); color: var(--text); line-height: 1.6; overflow-x: hidden; transition: background .3s, color .3s; }
+
+    /* Focus styles for a11y */
+    :focus-visible { outline: none; box-shadow: var(--ring); border-radius: 8px; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+
+    /* ---------- Header ---------- */
+    .skip-link {
+      position: absolute; left: 0; top: -40px; background: #111827; color: #fff; padding: .6rem 1rem; border-radius: 0 0 .5rem .5rem; z-index: 9999;
+    }
+    .skip-link:focus { top: 0; }
+
+    header {
+      background: var(--header-gradient);
+      color: #fff;
+      padding: .85rem 0;
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      box-shadow: 0 20px 45px rgba(15,23,42,0.18);
+      border-bottom: 1px solid rgba(255,255,255,0.18);
+    }
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 1.5rem;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: .3px;
+      text-shadow: 0 8px 22px rgba(15,23,42,0.35);
+    }
+    header h1 a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .45rem;
+      border-radius: 999px;
+      background: var(--header-pill-bg);
+      border: 1px solid var(--header-pill-border);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 20px 35px rgba(15,23,42,0.18);
+      backdrop-filter: blur(16px);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--header-button-bg);
+      color: #fff;
+      padding: .55rem 1.1rem;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .2px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 1px rgba(15,23,42,0.08);
+      position: relative;
+    }
+    .btn:hover,
+    .btn:focus-visible,
+    .btn.active {
+      transform: translateY(-2px);
+      background: var(--header-button-hover);
+      border-color: rgba(255,255,255,0.6);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 12px 26px rgba(15,23,42,0.25);
+    }
+
+    .toggle {
+      border-radius: 999px;
+      background: var(--header-button-bg);
+      border: 1px solid transparent;
+      color: #fff;
+      padding: .55rem .95rem;
+      cursor: pointer;
+      font-weight: 800;
+      min-width: 44px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 1px rgba(15,23,42,0.08);
+    }
+    .toggle:hover,
+    .toggle:focus-visible {
+      transform: translateY(-2px);
+      background: var(--header-button-hover);
+      border-color: rgba(255,255,255,0.6);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.55), 0 12px 26px rgba(15,23,42,0.25);
+    }
+
+    main { margin-top: 90px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+    /* ---------- Hero ---------- */
+    .hero { background: var(--gradient); color: white; padding: 4rem 0; text-align: center; position: relative; overflow: hidden; }
+    .hero-content { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+    .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+    .hero-profile { width: 170px; height: 170px; border-radius: 50%; border: 6px solid rgba(255,255,255,0.35); object-fit: cover; box-shadow: 0 25px 45px rgba(0,0,0,0.35); flex-shrink: 0; }
+    .hero-text { max-width: 540px; text-align: center; }
+    .hero h1 { font-size: 2.75rem; font-weight: 900; margin-bottom: .5rem; letter-spacing: .3px; }
+    .hero-subtitle { font-size: 1.2rem; font-weight: 500; margin-bottom: 1.6rem; opacity: .95; }
+    .hero-cta { display: inline-flex; gap: .8rem; flex-wrap: wrap; justify-content: center; }
+    .cta-primary { background: var(--accent); color: white; padding: .9rem 1.4rem; border-radius: 999px; text-decoration: none; font-weight: 900; box-shadow: 0 10px 30px rgba(16,185,129,.3); transition: transform .2s ease, box-shadow .2s ease; }
+    .cta-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(16,185,129,.4); }
+    .cta-secondary { background: transparent; color: white; padding: .9rem 1.4rem; border: 2px solid rgba(255,255,255,.3); border-radius: 999px; text-decoration: none; font-weight: 800; }
+    .cta-secondary:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.5); }
+
+    /* ---------- Sections ---------- */
+    section { margin-bottom: 2rem; background: var(--card); padding: 2rem; border-radius: 18px; box-shadow: var(--shadow); transition: transform .2s ease, box-shadow .2s ease; position: relative; overflow: hidden; border: 1px solid var(--border); }
+    section:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+    h2 { font-size: 1.9rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text); position: relative; padding-bottom: .5rem; }
+    h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 56px; height: 3px; background: var(--gradient); border-radius: 2px; }
+
+    /* ---------- Experience ---------- */
+    .xp-item { margin-bottom: 1.25rem; padding: 1rem; background: var(--secondary); border-radius: 12px; border-left: 4px solid var(--primary); display: grid; grid-template-columns: 1fr auto; gap: .75rem 1rem; align-items: start; }
+    .xp-role { color: var(--primary); font-weight: 900; margin-bottom: .25rem; }
+    .xp-dates { white-space: nowrap; color: var(--text-light); font-weight: 700; }
+    .xp-bullets { margin-top: .35rem; color: var(--text-light); }
+    .xp-bullets li { margin-left: 1.1rem; }
+
+    /* ---------- Projects Grid ---------- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .project-card { background: var(--card); border-radius: 14px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,.08); transition: transform .2s ease, box-shadow .2s ease; }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 36px rgba(0,0,0,.15); }
+    .project-card img { width: 100%; height: 190px; object-fit: cover; display:block; }
+    .project-card-illustration {
+      height: 190px;
+      width: 100%;
+      background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.25) 0, rgba(255,255,255,0) 55%),
+                  linear-gradient(135deg, rgba(14,165,233,0.85) 0%, rgba(124,58,237,0.85) 100%);
+    }
+    .project-card-content { padding: 1rem; }
+    .project-actions { display: flex; gap: .5rem; margin-top: .75rem; flex-wrap: wrap; }
+    .chip { display: inline-block; padding: .35rem .7rem; border-radius: 999px; background: var(--secondary); color: var(--text-light); font-weight: 800; font-size: .8rem; border: 1px solid var(--border); }
+    .project-link { display: inline-flex; align-items: center; gap: .35rem; font-weight: 800; color: var(--primary-dark); text-decoration: none; padding: .55rem .95rem; border-radius: 999px; border: 1px solid var(--border); background: var(--secondary); transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .project-link:hover { background: rgba(14,165,233,0.12); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(15,23,42,0.12); }
+    .projects-footer { margin-top: 1.5rem; text-align: center; }
+    .projects-footer a { display: inline-flex; align-items: center; gap: .45rem; background: var(--primary); color: #fff; padding: .85rem 1.6rem; border-radius: 999px; text-decoration: none; font-weight: 800; box-shadow: 0 12px 30px rgba(30,144,255,.25); transition: transform .2s ease, box-shadow .2s ease; }
+    .projects-footer a:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(30,144,255,.35); }
+
+    /* ---------- Community Feature ---------- */
+    .community-feature {
+      background: linear-gradient(140deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      text-align: center;
+      border: 1px solid rgba(148,163,184,0.2);
+    }
+    .community-feature h2 {
+      color: #fff;
+    }
+    .community-feature h2::after {
+      background: rgba(255,255,255,0.5);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .community-feature-lede {
+      color: rgba(226,232,240,0.85);
+      margin: .75rem auto 0;
+      max-width: 720px;
+      font-size: 1.05rem;
+    }
+    .community-feature .video-wrapper {
+      margin-top: 1.25rem;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: var(--shadow);
+    }
+    .community-feature .video-wrapper video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+
+    /* ---------- Skills ---------- */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
+    .skill-category ul, .xp-bullets { padding-left: 1.15rem; }
+    .skill-category li { margin-bottom: .35rem; }
+    .skill-category { background: var(--secondary); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--accent); }
+    .skill-category h3 { margin-bottom: .6rem; }
+
+    /* ---------- Contact ---------- */
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .contact-item { background: var(--secondary); padding: 1rem; border-radius: 12px; text-align: center; transition: transform .2s; }
+    .contact-form-card { grid-column: span 2; }
+    .contact-item:hover { transform: translateY(-3px); }
+    .contact-item a { color: var(--primary); font-weight: 800; text-decoration: none; }
+    .contact-icons { display:flex; gap:.75rem; justify-content:center; align-items:center; margin-top:.5rem; }
+    .contact-icons img { width:24px; height:24px; }
+
+    footer { background: var(--gradient); color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
+
+    /* ---------- Utilities ---------- */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: all .6s ease; }
+    .visible { opacity: 1; transform: translateY(0); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 768px) {
+      .header-content { flex-direction: column; gap: .75rem; align-items: stretch; }
+      .nav-buttons { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; padding: .4rem; -webkit-overflow-scrolling: touch; }
+      .nav-buttons::-webkit-scrollbar { display: none; }
+      .hero { padding: 3.25rem 0 3rem; }
+      .hero-inner { gap: 1.5rem; }
+      .hero-profile { width: 168px; height: 168px; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-subtitle { font-size: 1rem; }
+      .hero-cta a { width: 100%; text-align: center; }
+      .container { padding: 1rem; }
+      section { padding: 1.2rem; margin-bottom: 1.5rem; }
+      .xp-item { grid-template-columns: 1fr; }
+      .xp-dates { justify-self: start; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-item { text-align: left; }
+      .contact-form-card { grid-column: auto; }
+    }
+    @media (max-width: 600px) {
+      header { position: sticky; top: 0; }
+    }
+    @media (min-width: 769px) {
+      .hero-inner { flex-direction: row; align-items: center; justify-content: center; text-align: left; }
+      .hero-text { text-align: left; }
+      .hero-cta { justify-content: flex-start; }
+    }
+    /* ---------- Mobile/Tap targets ---------- */
+    img { max-width: 100%; height: auto; }
+    input, textarea, button { font-size: 16px; min-height: 44px; }
+    .btn, .cta-primary, .cta-secondary { min-height: 44px; }
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.35rem; }
+      .btn { padding: .7rem 1rem; flex: 0 0 auto; }
+      .hero h1 { font-size: 1.85rem; }
+      .hero-subtitle { font-size: .98rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header>
+    <div class="header-content">
+      <h1><a href="#" aria-label="Home">John Jimenez</a></h1>
+      <nav class="nav-buttons" aria-label="Primary">
+        <a href="#about" class="btn">About</a>
+        <a href="#experience" class="btn">Experience</a>
+        <a href="#projects" class="btn">Highlights</a>
+        <a href="#community-feature" class="btn">Community Feature</a>
+        <a href="projects.html" class="btn">Projects</a>
+        <button id="themeToggle" class="toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-inner">
+          <img src="profile.jpg" width="170" height="170" alt="Portrait of John Jimenez" class="hero-profile" />
+          <div class="hero-text">
+            <h1>John Jimenez</h1>
+            <p class="hero-subtitle">Senior IT Student • Data Analytics Enthusiast • Automation Specialist</p>
+            <div class="hero-cta">
+              <a href="#projects" class="cta-primary">View My Work</a>
+              <a href="#contact" class="cta-secondary">Get In Touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- Education -->
+      <section class="fade-in" aria-labelledby="edu-title">
+        <h2 id="edu-title">Education</h2>
+        <div style="background: var(--secondary); padding: 1.25rem; border-radius: 12px; border-left: 4px solid var(--accent);">
+          <h3 style="margin-bottom:.25rem;">Florida State University</h3>
+          <p><strong>B.S. in Information Technology</strong> | <strong>Minor:</strong> Business Administration</p>
+          <p><strong>GPA:</strong> 3.8 • <strong>Expected Graduation:</strong> May 2026</p>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="fade-in" aria-labelledby="skills-title">
+        <h2 id="skills-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Programming Languages</h3>
+            <ul>
+              <li>HTML &amp; CSS</li><li>JavaScript</li><li>Bash</li><li>MySQL</li><li>VBA</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Design &amp; UX</h3>
+            <ul>
+              <li>Figma</li><li>Miro</li><li>Uizard</li><li>Canva</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h3>Automation &amp; Analytics</h3>
+            <ul>
+              <li>SharePoint</li><li>Power Automate</li><li>Excel Macros</li><li>Power BI</li><li>Monday.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recognition -->
+      <section class="fade-in" aria-labelledby="awards-title">
+        <h2 id="awards-title">Recognition &amp; Certifications</h2>
+        <div class="skills-grid">
+          <div class="skill-category" style="border-left-color: var(--primary)">
+            <h3>Academic Honors</h3>
+            <ul>
+              <li>Dean's List (multiple semesters)</li>
+              <li>HITEC Scholar</li>
+              <li>Institute for Civic Engagement &amp; Democracy Honors</li>
+              <li>Communicating with Confidence Award</li>
+            </ul>
+          </div>
+          <div class="skill-category" style="border-left-color: var(--primary)">
+            <h3>Professional Certifications</h3>
+            <ul>
+              <li>CompTIA ITF+ (June 2021)</li>
+              <li>Monday.com Training Certificate (June 2024)</li>
+            </ul>
+          </div>
+          <div class="skill-category" style="border-left-color: var(--primary)">
+            <h3>Leadership &amp; Involvement</h3>
+            <ul>
+              <li>CARE Program Scholar</li>
+              <li>SSS–STEM</li>
+              <li>Florida–Georgia LSAMP</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="fade-in" aria-labelledby="about-title">
+        <h2 id="about-title">About Me</h2>
+        <p style="font-size: 1.05rem; color: var(--text-light); margin-bottom: .75rem;">
+          I'm a senior IT student at Florida State University with a passion for simplifying complexity through automation, analytics, and thoughtful design.
+        </p>
+        <p style="font-size: 1.05rem; color: var(--text-light);">
+          Across public–sector internships, I've shipped dashboards, streamlined SharePoint processes, and translated messy data into clear decisions.
+        </p>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="fade-in" aria-labelledby="exp-title">
+        <h2 id="exp-title">Professional Experience</h2>
+
+        <div class="xp-item">
+          <div>
+            <div class="xp-role">IT Automation and Workflow Intern — FSU Information Technology Services</div>
+            <p>Automating SharePoint-based health checks and redesigning document workflows with Power Automate and Microsoft Lists to improve compliance visibility for ITS audits.</p>
+            <ul class="xp-bullets">
+              <li>Automated the Backup OnBase system health checklist, cloning 40+ weekly records while dynamically updating "Check Date" and "Results" fields to eliminate manual duplication.</li>
+              <li>Modernizing fax line and workflow request processes by introducing Microsoft Lists and structured data collection for better compliance and reporting.</li>
+            </ul>
+          </div>
+          <div class="xp-dates">September 2025 — Present | Tallahassee, Florida</div>
+        </div>
+
+        <div class="xp-item">
+          <div>
+            <div class="xp-role">Data & Process Improvement Intern — Miami‑Dade County (CITT)</div>
+            <p>Designed surtax compliance dashboards, publication-ready reports, and digital intake forms that streamlined municipal transit oversight.</p>
+            <ul class="xp-bullets">
+              <li>Built a contract payment tracking workbook to monitor labor hours and costs against three active purchase orders, covering 40+ invoices to prevent overspending.</li>
+              <li>Authored and formatted the 90+ page Municipal Program report by consolidating data from 30+ municipalities using Excel and Canva.</li>
+              <li>Digitized paper attendee sign-ins with Microsoft Forms that auto-populated Excel logs, eliminating manual transcription and saving hours per event.</li>
+              <li>Rebuilt the municipal ridership tracking workbook, calculating 18M+ annual boardings across 37 municipalities and adding new performance metrics.</li>
+            </ul>
+          </div>
+          <div class="xp-dates">May 2025 — August 2025 | Miami, Florida</div>
+        </div>
+
+        <div class="xp-item">
+          <div>
+            <div class="xp-role">Cybersecurity Research Intern — Kenus Informática S.L.</div>
+            <p>Supported ENS certification preparation and bilingual documentation for Kenus Informática's security programs.</p>
+            <ul class="xp-bullets">
+              <li>Assisted with compliance documentation for Spain's Esquema Nacional de Seguridad (ENS) certification.</li>
+              <li>Supported the systems department in risk assessment and security policy documentation.</li>
+              <li>Drafted internal guides in Spanish and English outlining certification and privacy requirements.</li>
+            </ul>
+          </div>
+          <div class="xp-dates">September 2024 — December 2024 | Valencia, Spain</div>
+        </div>
+
+        <div class="xp-item">
+          <div>
+            <div class="xp-role">IT Automation & Project Management Intern — Miami-Dade County (Strategic Procurement)</div>
+            <p>Scaled portfolio management and QA tooling with Excel, SharePoint, and Monday Work Management to increase transparency across county IT initiatives.</p>
+            <ul class="xp-bullets">
+              <li>Developed VBA scripts that automated regression test status updates across workbooks, reducing manual effort by 20%.</li>
+              <li>Created an Excel dashboard surfacing real-time regression test progress, percent complete by module, and on-time performance for PMO briefings.</li>
+              <li>Built a SharePoint bug reporting system for 15 procurement staff with automated submissions, notifications, and status updates in Power Automate.</li>
+              <li>Managed 15 Monday Work Management boards tracking ~100 IT initiatives to improve collaboration and delivery visibility.</li>
+            </ul>
+          </div>
+          <div class="xp-dates">May 2024 — September 2024 | Miami, Florida</div>
+        </div>
+
+        <div class="xp-item">
+          <div>
+            <div class="xp-role">IT Privacy & Compliance Intern — FSU Information Security</div>
+            <p>Supported enterprise privacy by aligning NIST cybersecurity controls with C
