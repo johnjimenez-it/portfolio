@@ -307,6 +307,31 @@
       .skills-grid { grid-template-columns: 1fr; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "John Jimenez",
+    "url": "https://torch.cci.fsu.edu/~jj22e/",
+    "sameAs": [
+      "https://www.linkedin.com/in/john--jimenez",
+      "https://github.com/johnjimenez-it"
+    ],
+    "jobTitle": "IT Student",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Florida State University"
+    },
+    "knowsAbout": [
+      "Data Analytics",
+      "Automation",
+      "SharePoint",
+      "Power Automate",
+      "Excel",
+      "Power BI"
+    ]
+  }
+  </script>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -677,54 +702,7 @@
       }
     });
 
-    // JSON-LD (schema.org Person)
-    const person = {
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'John Jimenez',
-      url: 'https://torch.cci.fsu.edu/~jj22e/',
-      sameAs: [
-        'https://www.linkedin.com/in/john--jimenez',
-        'https://github.com/johnjimenez-it'
-      ],
-      jobTitle: 'IT Student',
-      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Florida State University' },
-      knowsAbout: ['Data Analytics','Automation','SharePoint','Power Automate','Excel','Power BI']
-    };
-    const ld = document.createElement('script');
-    ld.type = 'application/ld+json';
-    ld.textContent = JSON.stringify(person);
-    document.head.appendChild(ld);
-    
     // Dynamic main offset to handle multi-line mobile header
-    function syncMainOffset(){
-      const header = document.querySelector('header');
-      const main = document.querySelector('main');
-      if (header && main) { main.style.marginTop = header.offsetHeight + 'px'; }
-    }
-    syncMainOffset();
-    window.addEventListener('load', syncMainOffset);
-    window.addEventListener('resize', syncMainOffset);
-  </script>
-</body>
-</html>
-      '@context': 'https://schema.org',
-      '@type': 'Person',
-      name: 'John Jimenez',
-      url: 'https://torch.cci.fsu.edu/~jj22e/',
-      sameAs: [
-        'https://www.linkedin.com/in/john--jimenez',
-        'https://github.com/johnjimenez-it'
-      ],
-      jobTitle: 'IT Student',
-      alumniOf: { '@type': 'CollegeOrUniversity', name: 'Florida State University' },
-      knowsAbout: ['Data Analytics','Automation','SharePoint','Power Automate','Excel','Power BI']
-    };
-    const ld = document.createElement('script');
-    ld.type = 'application/ld+json';
-    ld.textContent = JSON.stringify(person);
-    document.head.appendChild(ld);
-      // Dynamic main offset to handle multi-line mobile header
     function syncMainOffset(){
       const header = document.querySelector('header');
       const main = document.querySelector('main');
