@@ -211,10 +211,24 @@
     .projects-footer a { display: inline-flex; align-items: center; gap: .45rem; background: var(--primary); color: #fff; padding: .85rem 1.6rem; border-radius: 999px; text-decoration: none; font-weight: 800; box-shadow: 0 12px 30px rgba(30,144,255,.25); transition: transform .2s ease, box-shadow .2s ease; }
     .projects-footer a:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(30,144,255,.35); }
 
-    /* ---------- Featured Interview ---------- */
-    .featured-interview-lede {
-      color: var(--text-light);
-      margin-top: .65rem;
+    /* ---------- Community Feature ---------- */
+    .community-feature {
+      background: linear-gradient(140deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      text-align: center;
+      border: 1px solid rgba(148,163,184,0.2);
+    }
+    .community-feature h2 {
+      color: #fff;
+    }
+    .community-feature h2::after {
+      background: rgba(255,255,255,0.5);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .community-feature-lede {
+      color: rgba(226,232,240,0.85);
+      margin: .75rem auto 0;
       max-width: 720px;
       font-size: 1.05rem;
     }
@@ -304,6 +318,7 @@
         <a href="#about" class="btn">About</a>
         <a href="#experience" class="btn">Experience</a>
         <a href="#projects" class="btn">Highlights</a>
+        <a href="#community-feature" class="btn">Community Feature</a>
         <a href="projects.html" class="btn">Career Portfolio</a>
         <button id="themeToggle" class="toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">☾</button>
       </nav>
@@ -527,6 +542,18 @@
         </div>
       </section>
 
+      <!-- Community Feature -->
+      <section id="community-feature" class="community-feature fade-in" aria-labelledby="community-feature-title">
+        <h2 id="community-feature-title">🌍 Community Feature: Mobility Matters – Empowering Transit Through Technology.</h2>
+        <p class="community-feature-lede">In this interview with Miami-Dade County’s Citizens’ Independent Transportation Trust (CITT), I share my journey from Miami to FSU and how I contributed to improving local transit systems through data visualization and innovation.</p>
+        <div class="video-wrapper">
+          <video controls preload="metadata">
+            <source src="snapsave-app_763576236270263_hd.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </section>
+
       <!-- Contact -->
       <section id="contact" class="fade-in" aria-labelledby="contact-title">
         <h2 id="contact-title">Let's Connect</h2>
@@ -605,7 +632,7 @@
     });
 
     // Active section highlight in nav
-    const sections = ['about','experience','projects','portfolio','contact'];
+    const sections = ['about','experience','projects','community-feature','contact'];
     const navLinks = [...document.querySelectorAll('.nav-buttons a[href^="#"]')];
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
