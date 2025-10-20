@@ -232,14 +232,14 @@
       max-width: 720px;
       font-size: 1.05rem;
     }
-    .video-wrapper {
+    .community-feature .video-wrapper {
       margin-top: 1.25rem;
       border-radius: 14px;
       overflow: hidden;
       background: #000;
       box-shadow: var(--shadow);
     }
-    .video-wrapper video {
+    .community-feature .video-wrapper video {
       display: block;
       width: 100%;
       height: auto;
@@ -607,17 +607,6 @@
   </footer>
 
   <script>
-    // Smooth scroll for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', (e) => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
     // IntersectionObserver animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
