@@ -211,6 +211,27 @@
     .projects-footer a { display: inline-flex; align-items: center; gap: .45rem; background: var(--primary); color: #fff; padding: .85rem 1.6rem; border-radius: 999px; text-decoration: none; font-weight: 800; box-shadow: 0 12px 30px rgba(30,144,255,.25); transition: transform .2s ease, box-shadow .2s ease; }
     .projects-footer a:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(30,144,255,.35); }
 
+    /* ---------- Featured Interview ---------- */
+    .featured-interview-lede {
+      color: var(--text-light);
+      margin-top: .65rem;
+      max-width: 720px;
+      font-size: 1.05rem;
+    }
+    .video-wrapper {
+      margin-top: 1.25rem;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: var(--shadow);
+    }
+    .video-wrapper video {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
+
     /* ---------- Skills ---------- */
     .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
     .skill-category ul, .xp-bullets { padding-left: 1.15rem; }
@@ -439,6 +460,18 @@
             </ul>
           </div>
           <div class="xp-dates">Sep 2023—May 2024</div>
+        </div>
+      </section>
+
+      <!-- Featured Interview -->
+      <section id="featured-interview" class="fade-in" aria-labelledby="featured-interview-title">
+        <h2 id="featured-interview-title">🎥 Featured Interview: Mobility Matters – John Jimenez at CITT</h2>
+        <p class="featured-interview-lede">In this interview with Miami-Dade County’s Citizens’ Independent Transportation Trust (CITT), I share my journey from West Little River to FSU and how I contributed to improving local transit systems through data visualization and innovation.</p>
+        <div class="video-wrapper">
+          <video controls preload="metadata">
+            <source src="snapsave-app_763576236270263_hd.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </section>
 
