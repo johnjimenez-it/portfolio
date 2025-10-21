@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+  <title id="title">Automated SharePoint workflow diagram</title>
+  <desc id="desc">Process flow showing recurrence triggering initialization of variables, fetching items, and applying actions to each item.</desc>
+  <defs>
+    <linearGradient id="recurrence" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+    <linearGradient id="initialize" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+    <linearGradient id="get" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="apply" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#94a3b8" />
+      <stop offset="100%" stop-color="#475569" />
+    </linearGradient>
+    <style>
+      text { font-family: 'Inter', 'Segoe UI', sans-serif; fill: #ffffff; font-weight: 700; }
+      .caption { fill: #475569; font-size: 32px; font-weight: 600; }
+    </style>
+  </defs>
+  <rect width="1200" height="500" rx="32" fill="#f8fafc" />
+  <text x="600" y="90" text-anchor="middle" class="caption">Power Automate workflow for procurement change requests</text>
+  <g transform="translate(0,50)">
+    <rect x="100" y="160" width="240" height="120" rx="28" fill="url(#recurrence)" />
+    <text x="220" y="220" text-anchor="middle" font-size="32">Recurrence</text>
+    <rect x="380" y="160" width="240" height="120" rx="28" fill="url(#initialize)" />
+    <text x="500" y="210" text-anchor="middle" font-size="30">Initialize</text>
+    <text x="500" y="244" text-anchor="middle" font-size="30">variable</text>
+    <rect x="660" y="160" width="240" height="120" rx="28" fill="url(#get)" />
+    <text x="780" y="210" text-anchor="middle" font-size="30">Get items</text>
+    <rect x="900" y="290" width="240" height="120" rx="28" fill="url(#apply)" />
+    <text x="1020" y="355" text-anchor="middle" font-size="30">Apply to each</text>
+    <path d="M340 220 H380" stroke="#64748b" stroke-width="12" stroke-linecap="round" />
+    <path d="M620 220 H660" stroke="#64748b" stroke-width="12" stroke-linecap="round" />
+    <path d="M900 290 L820 220" stroke="#64748b" stroke-width="12" stroke-linecap="round" />
+    <polygon points="380,220 360,208 360,232" fill="#64748b" />
+    <polygon points="660,220 640,208 640,232" fill="#64748b" />
+    <polygon points="900,290 880,278 884,300" fill="#64748b" />
+  </g>
+</svg>
