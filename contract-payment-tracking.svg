@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="480" viewBox="0 0 1440 480" role="img" aria-labelledby="title desc">
+  <title id="title">Contract payment tracking dashboard</title>
+  <desc id="desc">Spreadsheet showing an EXP payment tracking log with contract totals, invoices, and burn down status for First &amp; Last Mile Bicycle-Pedestrian Mobility Improvements.</desc>
+  <defs>
+    <linearGradient id="headerGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9c3aa" />
+      <stop offset="1" stop-color="#f4d6bd" />
+    </linearGradient>
+    <style type="text/css"><![CDATA[
+      text { font-family: 'Inter', 'Segoe UI', sans-serif; fill: #25324d; }
+      .label { font-size: 22px; font-weight: 700; letter-spacing: 0.8px; }
+      .subtitle { font-size: 18px; font-weight: 500; fill: #5b6b88; }
+      .table-title { font-size: 16px; font-weight: 600; fill: #3f4a63; }
+      .table-value { font-size: 18px; font-weight: 700; }
+      .table-small { font-size: 14px; fill: #5b6b88; }
+    ]]></style>
+  </defs>
+  <rect width="1440" height="480" fill="#faf7f2" rx="24" />
+  <rect x="60" y="54" width="520" height="150" rx="18" fill="url(#headerGradient)" stroke="#d2b59b" stroke-width="2" />
+  <text class="label" x="90" y="115">EXP PAYMENT TRACKING LOG</text>
+  <text class="subtitle" x="90" y="155">First &amp; Last Mile Bicycle-Pedestrian Mobility Improvements</text>
+
+  <g transform="translate(620,54)">
+    <rect width="760" height="150" rx="18" fill="#ffffff" stroke="#dce1eb" stroke-width="2" />
+    <text class="table-title" x="30" y="45">Acct Percentage</text>
+    <text class="table-title" x="220" y="45">YTD Hours</text>
+    <text class="table-title" x="360" y="45">Variance</text>
+    <text class="table-title" x="520" y="45">Remaining</text>
+    <text class="table-title" x="670" y="45">Risk</text>
+
+    <text class="table-value" fill="#2e7b58" x="30" y="88">92.1%</text>
+    <text class="table-value" fill="#2e7b58" x="220" y="88">378.96</text>
+    <text class="table-value" fill="#c2514f" x="360" y="88">-18.25</text>
+    <text class="table-value" fill="#2e7b58" x="520" y="88">61.74</text>
+    <rect x="660" y="65" width="42" height="42" rx="10" fill="#f97d7b" />
+    <text class="table-value" x="671" y="94" fill="#ffffff">75%</text>
+
+    <text class="table-small" x="30" y="122">Goal: 90%</text>
+    <text class="table-small" x="220" y="122">Goal: 360</text>
+    <text class="table-small" x="360" y="122">Tolerance ±10</text>
+    <text class="table-small" x="520" y="122">Budget Hours</text>
+    <text class="table-small" x="670" y="122">Traffic Light</text>
+  </g>
+
+  <g transform="translate(60,240)">
+    <rect width="1320" height="190" rx="22" fill="#ffffff" stroke="#dce1eb" stroke-width="2" />
+    <text class="table-title" x="32" y="55">Invoice No.</text>
+    <text class="table-title" x="200" y="55">Contractor</text>
+    <text class="table-title" x="450" y="55">Invoice Total</text>
+    <text class="table-title" x="650" y="55">Status</text>
+    <text class="table-title" x="840" y="55">Acct Remaining</text>
+    <text class="table-title" x="1070" y="55">Notes</text>
+
+    <g font-size="16" fill="#3f4a63" font-weight="600">
+      <text x="32" y="95">020424</text>
+      <text x="32" y="132">022124</text>
+      <text x="32" y="169">031424</text>
+    </g>
+    <g font-size="16" fill="#5b6b88">
+      <text x="200" y="95">Florida Bicycle Co.</text>
+      <text x="200" y="132">Sunshine Engineering</text>
+      <text x="200" y="169">Metro Mobility Group</text>
+    </g>
+    <g font-size="16" fill="#25324d" font-weight="700">
+      <text x="450" y="95">$27,845.25</text>
+      <text x="450" y="132">$18,392.10</text>
+      <text x="450" y="169">$23,640.00</text>
+    </g>
+    <g font-size="16" fill="#2e7b58" font-weight="700">
+      <text x="650" y="95">Approved</text>
+      <text x="650" y="132">Pending</text>
+      <text x="650" y="169">Submitted</text>
+    </g>
+    <g font-size="16" fill="#5b6b88">
+      <text x="840" y="95">$112,154.75</text>
+      <text x="840" y="132">$93,762.65</text>
+      <text x="840" y="169">$70,122.65</text>
+    </g>
+    <g font-size="15" fill="#5b6b88">
+      <text x="1070" y="95">Add to burn down</text>
+      <text x="1070" y="132">QA review 02/22</text>
+      <text x="1070" y="169">Missing hours log</text>
+    </g>
+  </g>
+</svg>
